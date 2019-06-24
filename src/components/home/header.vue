@@ -7,8 +7,10 @@
             <img src="/static/img/logo.png" alt="">
           </div>
         </el-col>
-        <el-col :xs="5"class="nav-icon hidden-sm-only">
-          菜单
+        <el-col :xs="15" class="hidden-sm-and-up">
+          <div class="menu-icon">
+            <i class="iconfont icon-caidan icon-fs"></i>
+          </div>
         </el-col>
         <el-col :xs="20" :sm="17" :md="18" :lg="18" :xl="17" class="hidden-xs-only">
           <div class="nav">
@@ -20,7 +22,7 @@
             </ul>
           </div>
         </el-col>
-        <el-col :xs="8" :sm="4" :md="3" :lg="4" :xl="5">
+        <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5">
           <span class="login">请登录</span>
         </el-col>
       </el-row>
@@ -60,9 +62,9 @@
 </script>
 
 <style scoped>
+  @import "http://at.alicdn.com/t/font_1259051_bdmfvwpen2e.css";
   .logo{
     margin-top: 10px;
-    border: 1px solid #fff;
   }
   .logo img{
     width: 42px;
@@ -95,8 +97,13 @@
   .active{
     color: #5ac8c9!important;
   }
-  .nav-icon{
+  .menu-icon{
     color: #fff;
+    text-align: right;
+    padding-top: 8px;
+  }
+  .icon-fs{
+    font-size: 22px;
   }
   @media (max-width: 1200px) {
     .header-width{
@@ -119,6 +126,16 @@
   @media (max-width: 767px) {
     .header-width{
       width: 100%;
+    }
+    .login{
+      margin-top: 10px;
+      font-size: 12px
+    }
+    .logo img{
+      width: 32px;
+    }
+    .logo{
+      margin-top: 5px;
     }
   }
 </style>
