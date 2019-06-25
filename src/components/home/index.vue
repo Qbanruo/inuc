@@ -5,7 +5,8 @@
       <banner></banner>
     </div>
     <div>
-      你好啊
+      <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-duration="2.0s" data-delay="0.1s" class="animate fadeInUp animated"></defaultTitle>
+      <our_products></our_products>
     </div>
     <vue-particles
       class="particles"
@@ -31,10 +32,12 @@
 <script>
 import topHeader from './header'
 import banner from './banner'
+import defaultTitle from './default_title'
+import our_products from './our_products'
 export default {
   name: 'home',
   components: {
-    topHeader, banner
+    topHeader, banner, defaultTitle, our_products
   }
 }
 </script>
@@ -53,6 +56,7 @@ export default {
     height: 770px;
     overflow: hidden;
   }
+
   @media (max-width: 1024px) {
     .banner{
       height: 600px;

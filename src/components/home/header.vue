@@ -46,7 +46,6 @@
       // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
       const that = this;
       that.clientWidth = `${document.documentElement.clientWidth}`;
-      console.log('----', that.clientWidth)
     },
     watch: {
       clientWidth (val) {
@@ -70,7 +69,6 @@
     width: 42px;
   }
   .header-width{
-    width: 1200px;
     margin: auto;
   }
   .login{
@@ -106,27 +104,18 @@
     font-size: 22px;
   }
   @media (max-width: 1200px) {
-    .header-width{
-      width: 1000px;
-    }
+
   }
   @media (max-width: 1024px) {
-    .header-width{
-      width: 90%;
-    }
+
   }
   @media screen and (min-width: 768px) and (max-width: 1000px) {
-    .header-width{
-      width: 95%;
-    }
+
     .nav ul li {
       padding: 10px 15px;
     }
   }
   @media (max-width: 767px) {
-    .header-width{
-      width: 100%;
-    }
     .login{
       margin-top: 10px;
       font-size: 12px
