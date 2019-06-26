@@ -4,10 +4,32 @@
       <topHeader></topHeader>
       <banner></banner>
     </div>
-    <div>
-      <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-duration="2.0s" data-delay="0.1s" class="animate fadeInUp animated"></defaultTitle>
+    <div class="home-item2">
+      <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
+                    data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <our_products></our_products>
     </div>
+    <div class="home-item3">
+      <plan></plan>
+    </div>
+    <div class="home-item3">
+      <defaultTitle title="INU生命互助介绍" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
+                    data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
+      <introduction></introduction>
+    </div>
+    <div class="home-itme4">
+      <defaultTitle title="生态体系" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
+                    data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
+    </div>
+    <div class="home-itme5">
+
+    </div>
+    <div class="home-itme6">
+      <defaultTitle title="合作伙伴" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
+                    data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
+      <partner></partner>
+    </div>
+    <defaultFooter></defaultFooter>
     <vue-particles
       class="particles"
       color="#dedede"
@@ -34,10 +56,14 @@ import topHeader from './header'
 import banner from './banner'
 import defaultTitle from './default_title'
 import our_products from './our_products'
+import introduction from './introduction'
+import partner from './partner'
+import plan from './plan'
+import defaultFooter from './footer'
 export default {
   name: 'home',
   components: {
-    topHeader, banner, defaultTitle, our_products
+    topHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter
   }
 }
 </script>

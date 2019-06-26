@@ -2,7 +2,7 @@
   <div>
     <el-row class="pro-width" :gutter="10">
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
-              data-wow-offset="100" data-wow-iteration="1" class="wow animated fadeInUp">
+              data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('1年')">
           <div class="pro-icon">
             <img src="/static/img/pro.png" alt="">
@@ -11,7 +11,7 @@
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
-              data-wow-offset="100" data-wow-iteration="1" class="wow animated fadeInUp">
+              data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('2年')">
           <div class="pro-icon">
             <img src="/static/img/pro.png" alt="">
@@ -20,7 +20,7 @@
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
-              data-wow-offset="100" data-wow-iteration="1" class="wow animated fadeInUp">
+              data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('5年')">
           <div class="pro-icon">
             <img src="/static/img/pro.png" alt="">
@@ -29,7 +29,7 @@
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
-              data-wow-offset="100" data-wow-iteration="1" class="wow animated fadeInUp">
+              data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('10年')">
           <div class="pro-icon">
             <img src="/static/img/pro.png" alt="">
@@ -40,8 +40,8 @@
     </el-row>
     <el-row class="pro-banner" v-show="show === '1年'">
       <div class="pro-width">
-        <el-col :xs="12" :sm="12" :md="18" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="left">
             <div class="title">重疾互助保障计划</div>
             <div class="sub-title">种类：1年</div>
@@ -54,8 +54,8 @@
             <button class="pro-btn">立即购买</button>
           </div>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
             <img src="/static/img/pro_1_year.png" width="100%">
           </div>
@@ -64,7 +64,7 @@
     </el-row>
     <el-row class="pro-banner" v-show="show === '2年'">
       <div class="pro-width">
-        <el-col :xs="12" :sm="12" :md="18" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
           <div class="left">
             <div class="title">重疾互助保障计划</div>
@@ -77,7 +77,7 @@
             <button class="pro-btn">立即购买</button>
           </div>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
           <div class="right">
             <img src="/static/img/pro_2_year.png" width="100%">
@@ -87,8 +87,8 @@
     </el-row>
     <el-row class="pro-banner" v-show="show === '5年'">
       <div class="pro-width">
-        <el-col :xs="12" :sm="12" :md="18" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="left">
             <div class="title">重疾互助保障计划</div>
             <div class="sub-title">种类：5年</div>
@@ -100,8 +100,8 @@
             <button class="pro-btn">立即购买</button>
           </div>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
             <img src="/static/img/pro_5_year.png" width="100%">
           </div>
@@ -110,8 +110,8 @@
     </el-row>
     <el-row class="pro-banner" v-show="show === '10年'">
       <div class="pro-width">
-        <el-col :xs="12" :sm="12" :md="18" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="left">
             <div class="title">重疾互助保障计划</div>
             <div class="sub-title">种类：10年</div>
@@ -124,8 +124,8 @@
             <button class="pro-btn">立即购买</button>
           </div>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
-                data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
+                data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
             <img src="/static/img/pro_10_year.png" width="100%">
           </div>
@@ -223,5 +223,19 @@
     padding: 5px 40px;
     font-size: 17px;
     margin-top: 30px;
+  }
+  @media (max-width: 1200px) {
+
+  }
+  @media (max-width: 1024px) {
+
+  }
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+    .pro-banner .left .title {
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 767px) {
+
   }
 </style>

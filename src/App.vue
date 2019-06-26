@@ -48,7 +48,7 @@ body {
 }
 @media (max-width: 767px) {
   .header-width, .pro-width{
-    width: 100%;
+    width: 90%;
   }
 }
 

@@ -45,11 +45,13 @@
     color: #fff;
     padding: 10px 25px;
     border-radius: 6px;
+    font-size: 17px;
   }
   .price-btn i{
     font-style: normal;
     color: #5ac8c9;
-    font-size: 16px;
+    font-size: 26px;
+    vertical-align: middle;
   }
   @media (max-width: 1024px) {
 

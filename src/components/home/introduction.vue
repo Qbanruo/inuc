@@ -1,0 +1,143 @@
+<template>
+  <div class="introduction">
+    <el-row class="pro-width " :gutter="45">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int1.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int2.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int3.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int4.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int1.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="wow animated fadeInUp" data-wow-duration="2s"
+              data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
+        <div class="content">
+          <div class="left">
+            <img src="/static/img/int2.jpg" width="100%">
+          </div>
+          <div class="right flex">
+            <div class="title">区块链技术</div>
+            <p class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、医疗、司法等各行各业的创新者。</p>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+  import {WOW} from 'wowjs'
+
+  export default {
+    name: 'introduction',
+    mounted () {
+      let wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 10,
+        mobile: true
+      })
+      wow.init()
+    }
+  }
+</script>
+
+<style scoped>
+.pro-width{
+  margin: auto!important;
+}
+.introduction .content{
+  display: flex;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.flex{
+  flex: 1;
+}
+.introduction .content .left{
+  width: 160px;
+  margin-right: 40px;
+}
+.introduction .content .right .title{
+  font-size: 18px;
+  color: #323232;
+}
+.introduction .content .right .text{
+  color: #969696;
+  font-size: 14px;
+}
+@media (max-width: 1024px) {
+  .introduction .content{
+    padding: 10px;
+  }
+  .introduction .content .left{
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+
+}
+
+@media (max-width: 767px) {
+  .introduction .content .left{
+    display: none;
+  }
+  .introduction .content{
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+</style>
