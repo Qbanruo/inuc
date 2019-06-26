@@ -36,7 +36,11 @@
 </script>
 
 <style scoped>
-.pro-width{
-  margin: auto!important;
-}
+  .pro-width {
+    margin: auto !important;
+  }
+
+  .partner {
+    padding: 50px 0;
+  }
 </style>

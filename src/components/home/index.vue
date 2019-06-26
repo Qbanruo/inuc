@@ -20,9 +20,12 @@
     <div class="home-itme4">
       <defaultTitle title="生态体系" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
+      // TODO
     </div>
     <div class="home-itme5">
-
+      <defaultTitle title="企业文化" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
+                    data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
+      <culture></culture>
     </div>
     <div class="home-itme6">
       <defaultTitle title="合作伙伴" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -56,14 +59,16 @@ import topHeader from './header'
 import banner from './banner'
 import defaultTitle from './default_title'
 import our_products from './our_products'
+import plan from './plan'
 import introduction from './introduction'
 import partner from './partner'
-import plan from './plan'
+import culture from './culture'
 import defaultFooter from './footer'
+
 export default {
   name: 'home',
   components: {
-    topHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter
+    topHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter, culture
   }
 }
 </script>
