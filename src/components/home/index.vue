@@ -3,6 +3,24 @@
     <div class="banner">
       <topHeader></topHeader>
       <banner></banner>
+      <vue-particles
+        class="particles"
+        color="#dedede"
+        :particleOpacity="0.7"
+        :particlesNumber="200"
+        shapeType="circle"
+        :particleSize="1"
+        linesColor="#dedede"
+        :linesWidth="1"
+        :lineLinked="false"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push">
+      </vue-particles>
     </div>
     <div class="home-item2">
       <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -20,7 +38,26 @@
     <div class="home-itme4">
       <defaultTitle title="生态体系" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
-      // TODO
+      <div class="content">
+        <vue-particles
+          class="particles2"
+          color="#dedede"
+          :particleOpacity="0.7"
+          :particlesNumber="200"
+          shapeType="circle"
+          :particleSize="1"
+          linesColor="#dedede"
+          :linesWidth="1"
+          :lineLinked="false"
+          :lineOpacity="0.4"
+          :linesDistance="150"
+          :moveSpeed="3"
+          :hoverEffect="true"
+          hoverMode="grab"
+          :clickEffect="true"
+          clickMode="push">
+        </vue-particles>
+      </div>
     </div>
     <div class="home-itme5">
       <defaultTitle title="企业文化" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -33,24 +70,6 @@
       <partner></partner>
     </div>
     <defaultFooter></defaultFooter>
-    <vue-particles
-      class="particles"
-      color="#dedede"
-      :particleOpacity="0.7"
-      :particlesNumber="200"
-      shapeType="circle"
-      :particleSize="1"
-      linesColor="#dedede"
-      :linesWidth="1"
-      :lineLinked="false"
-      :lineOpacity="0.4"
-      :linesDistance="150"
-      :moveSpeed="3"
-      :hoverEffect="true"
-      hoverMode="grab"
-      :clickEffect="true"
-      clickMode="push">
-    </vue-particles>
   </div>
 </template>
 
@@ -88,6 +107,16 @@ export default {
     overflow: hidden;
   }
 
+
+  .home-itme4{
+  }
+  .home-itme4 .content{
+    height: 800px;
+    background: #000;
+  }
+  .home-itme4 .content .particles2{
+    height: 800px;
+  }
   @media (max-width: 1024px) {
     .banner{
       height: 600px;
