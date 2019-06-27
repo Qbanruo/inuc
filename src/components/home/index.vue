@@ -98,7 +98,7 @@ export default {
   }
   .home-itme4 .content{
     height: 800px;
-    background: url("/static/img/stbg.png") repeat #000;
+    background: url("../../../static/img/stbg.png") repeat #000;
     background-size: 100%;
     margin-top: -140px;
     padding-top: 200px;

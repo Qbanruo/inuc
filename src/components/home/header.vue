@@ -4,12 +4,23 @@
       <el-row :gutter="20">
         <el-col :xs="4" :sm="2" :md="3" :lg="2" :xl="2" class="logo">
           <div>
-            <img src="/static/img/logo.png" alt="">
+            <img src="../../../static/img/logo.png" alt="">
           </div>
         </el-col>
-        <el-col :xs="15" class="hidden-sm-and-up">
+        <el-col :xs="20" class="hidden-sm-and-up">
           <div class="menu-icon">
-            <i class="iconfont icon-caidan icon-fs"></i>
+            <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                菜单<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>首页</el-dropdown-item>
+                <el-dropdown-item>产品与服务</el-dropdown-item>
+                <el-dropdown-item>联系我们</el-dropdown-item>
+                <el-dropdown-item>个人中心</el-dropdown-item>
+                <el-dropdown-item>请登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
           </div>
         </el-col>
         <el-col :xs="20" :sm="17" :md="18" :lg="18" :xl="17" class="hidden-xs-only">
@@ -22,7 +33,7 @@
             </ul>
           </div>
         </el-col>
-        <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5">
+        <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
           <span class="login">请登录</span>
         </el-col>
       </el-row>
@@ -96,9 +107,11 @@
     color: #5ac8c9!important;
   }
   .menu-icon{
-    color: #fff;
     text-align: right;
     padding-top: 8px;
+  }
+  .header >>> .el-dropdown{
+    color: #fff;
   }
   .icon-fs{
     font-size: 22px;

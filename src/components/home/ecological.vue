@@ -5,7 +5,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <div class="icon">
-            <img src="/static/img/st1.png">
+            <img src="../../../static/img/st1.png">
           </div>
           <div class="title">互助保障</div>
           <div class="text">
@@ -19,7 +19,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <div class="icon">
-            <img src="/static/img/st2.png">
+            <img src="../../../static/img/st2.png">
           </div>
           <div class="title">互助医疗</div>
           <div class="text">
@@ -33,7 +33,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <div class="icon">
-            <img src="/static/img/st3.png">
+            <img src="../../../static/img/st3.png">
           </div>
           <div class="title">互助慈善</div>
           <div class="text">
@@ -47,7 +47,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <div class="icon">
-            <img src="/static/img/st4.png">
+            <img src="../../../static/img/st4.png">
           </div>
           <div class="title">健康平台</div>
           <div class="text">

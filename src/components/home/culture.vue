@@ -5,7 +5,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <span class="icon">
-            <img src="/static/img/wh1.png">
+            <img src="../../../static/img/wh1.png">
           </span>
           <div class="text">
             帮助大众管理健康，防患
@@ -18,7 +18,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <span class="icon">
-            <img src="/static/img/wh2.png">
+            <img src="../../../static/img/wh2.png">
           </span>
           <div class="text">
             打造全球互助体系
@@ -32,7 +32,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="content">
           <span class="icon">
-            <img src="/static/img/wh3.png">
+            <img src="../../../static/img/wh3.png">
           </span>
           <div class="text">
             利用区块链技术，

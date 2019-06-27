@@ -3,11 +3,11 @@
     <el-row class="pro-width" :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp content-col">
-          <img src="/static/img/st5.png" width="100%">
+          <img src="../../../static/img/st5.png" width="100%">
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp content-col">
-          <img src="/static/img/st6.png" width="100%">
+          <img src="../../../static/img/st6.png" width="100%">
       </el-col>
     </el-row>
   </div>

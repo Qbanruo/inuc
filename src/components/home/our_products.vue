@@ -6,7 +6,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('1年')">
           <div class="pro-icon">
-            <img src="/static/img/pro.png" alt="">
+            <img src="../../../static/img/pro.png" alt="">
           </div>
           <div class="title" :class="[show === '1年' ? 'color' : '']">INU大病互助(1年)</div>
         </div>
@@ -15,7 +15,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('2年')">
           <div class="pro-icon">
-            <img src="/static/img/pro.png" alt="">
+            <img src="../../../static/img/pro.png" alt="">
           </div>
           <div class="title" :class="[show === '2年' ? 'color' : '']">INU大病互助(2年)</div>
         </div>
@@ -24,7 +24,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('5年')">
           <div class="pro-icon">
-            <img src="/static/img/pro.png" alt="">
+            <img src="../../../static/img/pro.png" alt="">
           </div>
           <div class="title" :class="[show === '5年' ? 'color' : '']">INU大病互助(5年)</div>
         </div>
@@ -33,7 +33,7 @@
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
         <div class="pro-content" @click="showProduct('10年')">
           <div class="pro-icon">
-            <img src="/static/img/pro.png" alt="">
+            <img src="../../../static/img/pro.png" alt="">
           </div>
           <div class="title" :class="[show === '10年' ? 'color' : '']">INU大病互助(10年)</div>
         </div>
@@ -58,7 +58,7 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
-            <img src="/static/img/pro_1_year.png" width="100%">
+            <img src="../../../static/img/pro_1_year.png" width="100%">
           </div>
         </el-col>
       </div>
@@ -81,7 +81,7 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
           <div class="right">
-            <img src="/static/img/pro_2_year.png" width="100%">
+            <img src="../../../static/img/pro_2_year.png" width="100%">
           </div>
         </el-col>
       </div>
@@ -104,7 +104,7 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
-            <img src="/static/img/pro_5_year.png" width="100%">
+            <img src="../../../static/img/pro_5_year.png" width="100%">
           </div>
         </el-col>
       </div>
@@ -128,7 +128,7 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="right">
-            <img src="/static/img/pro_10_year.png" width="100%">
+            <img src="../../../static/img/pro_10_year.png" width="100%">
           </div>
         </el-col>
       </div>

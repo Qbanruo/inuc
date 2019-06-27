@@ -1,6 +1,6 @@
 <template>
   <div class="clause-box">
-    <el-dialog title="温馨提示" :visible.sync="dialogFormVisible">
+    <el-dialog title="温馨提示" :visible.sync="dialogFormVisible" top="10vh">
       <div class="clause">
         <h1>前言</h1>
         <h2>INU 重大疾病互助保障计划条款</h2>
@@ -580,5 +580,23 @@
   .radio{
     float: right;
     margin-top: 15px;
+  }
+
+  @media (max-width: 767px) {
+    .clause-box >>> .el-dialog{
+      width: 90%;
+    }
+    .clause-box >>> .el-dialog__body{
+      padding: 20px 20px 0;
+    }
+    .clause-box >>> .el-dialog__header{
+      padding: 10px 20px;
+    }
+    .clause-box >>> .el-dialog__footer{
+      padding: 0 20px 10px;
+    }
+    .clause-box >>> .el-dialog__headerbtn{
+      top: 13px;
+    }
   }
 </style>

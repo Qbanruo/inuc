@@ -4,7 +4,7 @@
       <el-col :xs="24" :sm="10" :md="8" :lg="8" :xl="8" class="wow animated fadeInUp" data-wow-duration="2s"
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="left">
-          <img src="/static/img/plan.png" width="100%">
+          <img src="../../../static/img/plan.png" width="100%">
         </div>
       </el-col>
       <el-col :xs="24" :sm="14" :md="16" :lg="16" :xl="16" class="wow animated fadeInUp" data-wow-duration="2s"

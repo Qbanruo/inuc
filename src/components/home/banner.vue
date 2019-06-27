@@ -1,8 +1,8 @@
 <template>
   <div class="banner-box">
     <div class="banner-content">
-      <img src="/static/img/banner-icon.png" alt="" class="banner-icon animated fadeIn show">
-      <img src="/static/img/banner-logo.png" alt="" class="banner-logo animated fadeIn show">
+      <img src="../../../static/img/banner-icon.png" alt="" class="banner-icon animated fadeIn show">
+      <img src="../../../static/img/banner-logo.png" alt="" class="banner-logo animated fadeIn show">
     </div>
     <div class="banner-btn animated fadeIn show">
       <span class="price-btn">INU： <i>￥500</i></span>
