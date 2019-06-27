@@ -21,6 +21,7 @@ body {
 }
 .pro-width, .header-width{
   width: 1200px;
+  margin: auto !important;
 }
 @media (max-width: 1200px) {
   .header-width{

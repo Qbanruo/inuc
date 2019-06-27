@@ -1,5 +1,6 @@
 <template>
   <div>
+    <buy ref="buyPro"></buy>
     <el-row class="pro-width" :gutter="10">
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
@@ -51,7 +52,7 @@
               于区块链技术的技术逻辑，用区块链技术保障每一个人的共识信任。通过链上社区人与人的信任共识，
               建立“共建共赢，互助互信”的社区体系。
             </div>
-            <button class="pro-btn">立即购买</button>
+            <button class="pro-btn" @click="showBuy">立即购买</button>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
@@ -137,9 +138,10 @@
 
 <script>
   import {WOW} from 'wowjs'
-
+  import buy from './buy'
   export default {
     name: 'our_products',
+    components: {buy},
     data () {
       return {
         show: '1年'
@@ -148,6 +150,10 @@
     methods: {
       showProduct (val) {
         this.show = val
+      },
+      showBuy(){
+        console.log(111)
+        this.$refs.buyPro.show()
       }
     },
     mounted () {
