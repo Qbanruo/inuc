@@ -11,6 +11,14 @@ let routes = [
     meta: {
       title: '首页'
     }
+  },
+  {
+    path: '/person',
+    name: 'person',
+    component: () => import('@/components/person/index'),
+    meta: {
+      title: '个人中心'
+    }
   }
 ]
 const router = new Router({routes})

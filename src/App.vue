@@ -18,6 +18,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 14px;
+  background: #f5f5f5;
 }
 .pro-width, .header-width{
   width: 1200px;

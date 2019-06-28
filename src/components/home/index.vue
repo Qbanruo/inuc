@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner">
-      <topHeader></topHeader>
+      <defaultHeader isHome="home"></defaultHeader>
       <banner></banner>
       <vue-particles
         class="particles"
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import topHeader from './header'
+import defaultHeader from './header'
 import banner from './banner'
 import defaultTitle from './default_title'
 import our_products from './our_products'
@@ -73,7 +73,7 @@ import defaultFooter from './footer'
 export default {
   name: 'home',
   components: {
-    topHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter, culture, ecological, ecological_banner
+    defaultHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter, culture, ecological, ecological_banner
   }
 }
 </script>
