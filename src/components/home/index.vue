@@ -7,7 +7,7 @@
         class="particles"
         color="#dedede"
         :particleOpacity="0.7"
-        :particlesNumber="200"
+        :particlesNumber="300"
         shapeType="circle"
         :particleSize="1"
         linesColor="#dedede"
@@ -22,20 +22,20 @@
         clickMode="push">
       </vue-particles>
     </div>
-    <div class="home-item2">
+    <div class="home-item2 bgfff">
       <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <our_products></our_products>
     </div>
-    <div class="home-item3">
+    <div class="home-item3 bgfff">
       <plan></plan>
     </div>
-    <div class="home-item3">
+    <div class="home-item3 bgfff">
       <defaultTitle title="INU生命互助介绍" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <introduction></introduction>
     </div>
-    <div class="home-itme4">
+    <div class="home-itme4 bgfff">
       <defaultTitle title="生态体系" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <ecological></ecological>
@@ -43,12 +43,12 @@
         <ecological_banner></ecological_banner>
       </div>
     </div>
-    <div class="home-itme5">
+    <div class="home-itme5 bgfff">
       <defaultTitle title="企业文化" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <culture></culture>
     </div>
-    <div class="home-itme6">
+    <div class="home-itme6 bgfff">
       <defaultTitle title="合作伙伴" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <partner></partner>
@@ -79,13 +79,16 @@ export default {
 </script>
 
 <style scoped>
+  .bgfff{
+    background: #fff;
+  }
   .particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: -1;
-    background: #000102;
+    background: #000817;
     height: 770px;
   }
   .banner {

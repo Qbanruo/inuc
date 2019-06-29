@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import api from 'api'
   export default {
     name: 'banner'
   }
@@ -43,14 +44,14 @@
   .price-btn{
     border: 1px solid #fff;
     color: #fff;
-    padding: 10px 25px;
+    padding: 8px 20px;
     border-radius: 6px;
-    font-size: 17px;
+    font-size: 16px;
   }
   .price-btn i{
     font-style: normal;
     color: #5ac8c9;
-    font-size: 26px;
+    font-size: 20px;
     vertical-align: middle;
   }
   @media (max-width: 1024px) {

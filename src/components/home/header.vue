@@ -29,7 +29,7 @@
         <el-col :xs="20" :sm="17" :md="18" :lg="18" :xl="17" class="hidden-xs-only">
           <div class="nav">
             <ul>
-              <li class="active">首页</li>
+              <li class="active" @click="$router.push('/')">首页</li>
               <li>产品与服务</li>
               <li>联系我们</li>
               <li @click="$router.push('/person')">个人中心</li>
@@ -92,7 +92,7 @@
     border: 1px solid #5ac8c9;
     border-radius: 12px;
     padding: 2px 10px;
-    margin-top: 20px;
+    margin-top: 22px;
     display: inline-block;
     float: right;
   }

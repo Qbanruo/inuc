@@ -1,5 +1,5 @@
 <template>
-    <div class="account-box">
+    <div class="person-item">
       <el-row class="pro-width">
         <el-col :xs="24" :sm="12" :md="4" :lg="2" :xl="4">
           <div class="left">
@@ -48,7 +48,7 @@
                   align="center"
                   type="index"
                   label="序号"
-                  width="50">
+                  width="80">
                 </el-table-column>
                 <el-table-column
                   align="center"
@@ -127,50 +127,51 @@
   .pro-width{
     background: #fff;
   }
-  .account-box{
+  .person-item{
     margin-top: 20px;
   }
-  .account-box .left{
+  .person-item .left{
     background: #fff;
     padding: 5px 0;
   }
-  .account-box .left h2{
+  .person-item .left h2{
     font-size: 16px;
     padding: 0 15px;
   }
-  .account-box .left p{
+  .person-item .left p{
     color: #666;
     padding: 0 15px;
   }
-  .account-box .right{
+  .person-item .right{
+    background: #f5f5f5;
     border-left: 20px solid #f5f5f5;
   }
-  .account-box .right-top{
+  .person-item .right-top{
     display: flex;
   }
-  .account-box .flex{
+  .person-item .flex{
     flex: 1;
   }
-  .account-box .right-top{
+  .person-item .right-top{
     height: 190px;
     overflow: hidden;
   }
-  .account-box .right-top .head{
+  .person-item .right-top .head{
     width: 190px;
     height: 190px;
     background: #57c6bd;
   }
-  .account-box .right-top .info{
+  .person-item .right-top .info{
     background: #fff;
   }
-  .account-box .title{
+  .person-item .title{
     border-bottom: 1px solid #ededed;
     line-height: 2.5;
     font-size: 16px;
     padding-left: 20px;
     color: #242331;
   }
-  .account-box .form-content{
+  .person-item .form-content{
     margin-top: 10px;
     width: 300px;
   }
@@ -178,7 +179,18 @@
     background: #fff;
     margin-top: 20px;
   }
-  .right-btm >>> .el-table td, .el-table th.is-leaf{
-    /*border-bottom: none;*/
+  .right-btm >>> .el-table td, .el-table th{
+    padding: 8px 0;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1000px) {
+    .person-item .right{
+      border-left: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .person-item .right{
+      border-left: none;
+    }
   }
 </style>

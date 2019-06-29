@@ -1,8 +1,6 @@
 let config = {
-  apiSite: 'ace.she.dev2.zanservice.com/api'
+  apiSite: '39.100.122.95:8080/code_test_manager/openapi/novalid/'
 }
-// const http = 'http'/ 'https' 确定是http 或者 https
-const http = process.env.NODE_ENV === 'development' ? 'http' : 'https'
+const http = 'http'
 
 export const apiRoot = `${http}://${config.apiSite}`
-export const headerName = 'X-Ca-ZanToken'

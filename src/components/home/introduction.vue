@@ -5,7 +5,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int1.jpg" width="100%">
+            <img src="../../../static/img/int1.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>
@@ -17,7 +17,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int2.jpg" width="100%">
+            <img src="../../../static/img/int2.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>
@@ -29,7 +29,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int3.jpg" width="100%">
+            <img src="../../../static/img/int3.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>
@@ -41,7 +41,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int4.jpg" width="100%">
+            <img src="../../../static/img/int4.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>
@@ -53,7 +53,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int1.jpg" width="100%">
+            <img src="../../../static/img/int1.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>
@@ -65,7 +65,7 @@
               data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
         <div class="content">
           <div class="left">
-            <img src="/static/img/int2.jpg" width="100%">
+            <img src="../../../static/img/int2.jpg" width="100%">
           </div>
           <div class="right flex">
             <div class="title">区块链技术</div>

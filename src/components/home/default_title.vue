@@ -1,8 +1,11 @@
 <template>
-  <div class="title-content">
-    <span class="title">{{title}}</span>
-    <div class="sub-title">{{subTitle}}</div>
+  <div style="padding: 5% 0">
+    <div class="title-content">
+      <span class="title">{{title}}</span>
+      <div class="sub-title">{{subTitle}}</div>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -19,7 +22,7 @@
   .title-content {
     border: 1px solid #c8c8c8;
     width: 250px;
-    margin: 5% auto;
+    margin: auto;
     text-align: center;
   }
 
