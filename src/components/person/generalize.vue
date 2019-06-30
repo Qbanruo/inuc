@@ -1,23 +1,23 @@
 <template>
   <div class="person-item">
     <el-row class="pro-width">
-      <el-col :xs="24" :sm="12" :md="4" :lg="2" :xl="4">
+      <el-col :xs="24" :sm="4" :md="4" :lg="2" :xl="4">
         <div class="left">
           <h2>推广记录</h2>
           <p>我的推广</p>
           <p>推广记录</p>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="20" :lg="20" :xl="20">
+      <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
         <div class="right">
           <div class="tui-guang">
             <div class="title">我的推广 <button class="img-btn">我的专属海报</button> </div>
             <el-form label-width="120px" :model="form" size="mini" :inline="true" class="form-content">
                 <el-form-item label="推广人数">
-                  <el-input v-model="form.number" placeholder="推广人数" readonly></el-input>
+                  <el-input v-model="form.number" placeholder="推广人数"></el-input>
                 </el-form-item>
                 <el-form-item label="获得收益">
-                  <el-input v-model="form.money" placeholder="获得收益" readonly></el-input>
+                  <el-input v-model="form.money" placeholder="获得收益"></el-input>
                 </el-form-item>
             </el-form>
           </div>

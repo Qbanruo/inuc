@@ -22,8 +22,12 @@ export default {
     let data = await HttpLib.post(ApiRoutes.api.postSweepPayment(), params)
     return data
   },
-  async getAddress (p){
-    let data = await HttpLib.post(ApiRoutes.api.getAddress(), p)
+  async getEffectiveInsurance (params){
+    let data = await HttpLib.post(ApiRoutes.api.getEffectiveInsurance(), params)
+    return data
+  },
+  async getUnopenedInsurance (params){
+    let data = await HttpLib.post(ApiRoutes.api.getUnopenedInsurance(), params)
     return data
   }
 }

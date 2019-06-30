@@ -1,14 +1,14 @@
 <template>
     <div class="person-item">
       <el-row class="pro-width">
-        <el-col :xs="24" :sm="12" :md="4" :lg="2" :xl="4">
+        <el-col :xs="24" :sm="2" :md="4" :lg="2" :xl="4">
           <div class="left">
             <h2>我的账户</h2>
             <p>我的账户</p>
             <p>交易记录</p>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="20" :lg="20" :xl="20">
+        <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
           <div class="right">
             <div class="right-top">
               <div class="head">
@@ -18,8 +18,8 @@
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess"
                   :before-upload="beforeAvatarUpload">
-                  <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                  <i v-else class="el-icon-plus avatar-uploader-icon">点击更换头像</i>
+                  <img  :src="imageUrl" class="avatar">
+                  <button class="upload-img-btn">点击更换头像</button>
                 </el-upload>
               </div>
               <div class="info flex">
@@ -27,13 +27,13 @@
                 <el-form label-width="80px" :model="form" size="mini">
                   <div class="form-content">
                     <el-form-item label="昵称">
-                      <el-input v-model="form.name" placeholder="昵称"></el-input>
+                      <el-input v-model="form.name" placeholder="昵称" readonly></el-input>
                     </el-form-item>
                     <el-form-item label="账户地址">
-                      <el-input v-model="form.address" placeholder="账户地址"></el-input>
+                      <el-input v-model="form.address" placeholder="账户地址" readonly></el-input>
                     </el-form-item>
                     <el-form-item label="INU余额">
-                      <el-input v-model="form.money" placeholder="INU余额"></el-input>
+                      <el-input v-model="form.money" placeholder="INU余额" readonly></el-input>
                     </el-form-item>
                   </div>
                 </el-form>
@@ -112,6 +112,12 @@
         ]
       }
     },
+    created(){
+      let personInfo = JSON.parse(window.sessionStorage.getItem('personInfo'))
+      console.log(personInfo);
+      this.form.name = personInfo.nickname
+      this.imageUrl = personInfo.headimgurl
+    },
     methods: {
       handleAvatarSuccess () {
 
@@ -182,7 +188,18 @@
   .right-btm >>> .el-table td, .el-table th{
     padding: 8px 0;
   }
-
+  .person-item >>> .el-upload img{
+    border-radius: 50%;
+    margin-top: 20px;
+    width: 60%;
+  }
+  .upload-img-btn{
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
   @media screen and (min-width: 768px) and (max-width: 1000px) {
     .person-item .right{
       border-left: none;

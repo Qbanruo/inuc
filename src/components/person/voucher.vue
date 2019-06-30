@@ -1,19 +1,19 @@
 <template>
   <div class="person-item">
     <el-row class="pro-width">
-      <el-col :xs="24" :sm="12" :md="4" :lg="2" :xl="4">
+      <el-col :xs="24" :sm="4" :md="4" :lg="2" :xl="4">
         <div class="left">
           <h2>电子凭证</h2>
           <p>未开封保单</p>
           <p>生效保单</p>
         </div>
       </el-col>
-      <el-col :xs="24" :sm="12" :md="20" :lg="20" :xl="20">
+      <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
         <div class="right">
           <div class="right-btm">
             <div class="title">未开封保单</div>
             <el-table
-              :data="tableData"
+              :data="unopenedInsurance"
               style="width: 100%">
               <el-table-column
                 align="center"
@@ -23,22 +23,21 @@
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="date"
-                label="日期">
+                prop="recordTime"
+                label="产生日期">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="number"
-                label="保障编号">
+                prop="payNum"
+                label="投保类型">
               </el-table-column>
               <el-table-column
                 align="center"
                 prop="year"
-                label="保单年限">
+                label="保障年限">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="shouyi"
                 label="操作">
                 <template slot-scope="scope">
                   <button class="grey-btn">预览</button>
@@ -50,7 +49,7 @@
           <div class="right-btm mt20">
             <div class="title">生效保单</div>
             <el-table
-              :data="tableData"
+              :data="effectiveInsurance"
               style="width: 100%">
               <el-table-column
                 align="center"
@@ -60,27 +59,26 @@
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="date"
+                prop="recordTime"
                 label="产生日期">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="number"
+                prop="receiveTime"
                 label="保障时间">
               </el-table-column>
               <el-table-column
                 align="center"
                 prop="year"
-                label="保单年限">
+                label="保障年限">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="year"
+                prop="payNum"
                 label="保障编号">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="shouyi"
                 label="操作">
                 <template slot-scope="scope">
                   <button class="grey-btn">预览</button>
@@ -96,6 +94,7 @@
 </template>
 
 <script>
+  import api from '../../common/api'
   export default {
     name: 'voucher',
     data () {
@@ -123,7 +122,28 @@
             year: '20',
             shouyi: '0'
           }
-        ]
+        ],
+        effectiveInsurance: [],
+        unopenedInsurance: [],
+        param: {
+          token: window.sessionStorage.getItem('token')
+        }
+      }
+    },
+    created(){
+      this.getEffectiveInsurance()
+      this.getUnopenedInsurance()
+    },
+    methods: {
+      getEffectiveInsurance () {
+        api.getEffectiveInsurance(this.param).then(s => {
+          this.effectiveInsurance = s.data
+        })
+      },
+      getUnopenedInsurance(){
+        api.getUnopenedInsurance(this.param).then(s => {
+          this.unopenedInsurance = s.data
+        })
       }
     },
   }

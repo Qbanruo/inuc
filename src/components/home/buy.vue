@@ -1,6 +1,13 @@
 <template>
   <div class="clause-box">
     <el-dialog title="温馨提示" :visible.sync="dialogFormVisible" top="10vh">
+      <el-dialog
+        width="30%"
+        title="扫码支付"
+        :visible.sync="innerVisible"
+        append-to-body>
+        <div id="qrcode" class="qr-code"></div>
+      </el-dialog>
       <div class="clause">
         <h1>前言</h1>
         <h2>INU 重大疾病互助保障计划条款</h2>
@@ -465,10 +472,10 @@
         <p> 6. 最高互助金限额为 300 万人民币等值的 INU。</p>
       </div>
       <div class="radio-box">
-        <el-form :inline="true" :model="termForm" ref="termForm" >
+        <el-form :inline="true" :model="termForm" ref="termForm">
           <el-form-item label="" style="float: right" prop="term"
                         :rules="[{ required: true, message: '请先同意以上条款', trigger: ['blur', 'change']}]">
-           <el-radio v-model="termForm.term" class="radio" label="1">我同意以上条款</el-radio>
+            <el-radio v-model="termForm.term" class="radio" label="1">我同意以上条款</el-radio>
           </el-form-item>
         </el-form>
       </div>
@@ -498,12 +505,14 @@
 
 <script>
   import api from '../../common/api'
-  import axios from 'axios'
+  import QRCode from 'qrcodejs2'
+
   export default {
     name: 'buy',
     data () {
       return {
         dialogFormVisible: false,
+        innerVisible: false,
         form: {
           year: '',
           amount: '',
@@ -516,7 +525,7 @@
         inuInfo: null
       }
     },
-    created(){
+    created () {
       this.inuInfo = null
       this.years = []
       this.getINU()
@@ -525,7 +534,7 @@
       show () {
         this.dialogFormVisible = true
       },
-      getINU (){
+      getINU () {
         api.getInuInfoByType({type: 100}).then(s => {
           this.inuInfo = s.data
           s.data.forEach(p => {
@@ -533,55 +542,59 @@
           })
         })
       },
-      async validate(){
-        axios({
-          method: 'post',
-          url: 'http://39.100.122.95:8080/code_test_manager/api/openApiTest1',
-          data: {
-            address: "18500054021",
-          },
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        }).then(function (response) {
-          console.log(response);
+      async validate () {
+        let termForm = false
+        let form = false
+        this.$refs.termForm.validate((v) => {
+          termForm = v
         })
-          .catch(function (error) {
-            console.log(error);
-          });
-
-        // let termForm = false
-        // let form = false
-        // this.$refs.termForm.validate((v) => {
-        //   termForm = v
-        // })
-        // this.$refs.form.validate((valid) => {
-        //   form = valid
-        // })
-        // if(form && termForm){
-        //   this.submit()
-        // }
+        this.$refs.form.validate((valid) => {
+          form = valid
+        })
+        if (form && termForm) {
+          this.submit()
+        }
       },
-      submit(){
+      submit () {
         let params = {
           token: window.sessionStorage.getItem('token'),
           amount: this.form.amount,
           type: 100,
           year: this.form.year
         }
-        api.postSweepPayment(params).then(s => {
-          console.log(s);
+        // api.postSweepPayment(params).then(s => {
+        //   console.log(s);
+        //   let codelink = s.data
+        // })
+        let link = 'https://www.reitschain.com/code/pay?s=IE3dct1MSHPboCjCyfXEhlwHhe3xKUE4wpObbvLNgv60Z2Fv4eaiOsPX6NIqs10zqmHByp9vj6ScakHeAeYGXBU=&o=assetId*100003,amount*1000,toAddress*1ojviBeqSqasEKRWqifwLwwP5MzJN181y,fromAddress*1DQRXY1Pt8Jz5sP8Tesch8jY4ahq66k3Mw,time*1561900337349&a=1ojviBeqSqasEKRWqifwLwwP5MzJN181y'
+        if(link){
+          this.innerVisible = true
+          let doc = document.getElementById('qrcode')
+          if(doc){
+            document.getElementById('qrcode').innerHTML = ''
+          }
+          this.$nextTick(() => {
+            this.qrcode(link)
+          })
+        }
+
+      },
+      qrcode (link) {
+        const qrcode = new QRCode('qrcode', {
+          width: 200,
+          height: 200,
+          text: link
         })
       }
     },
     watch: {
-      'form.year': function (val){
-        if(val){
+      'form.year': function (val) {
+        if (val) {
           let find = this.inuInfo.find(s => {
             return s.year === val
           })
           this.form.amount = find.amount
-          if(window.sessionStorage.getItem("inuPrice")){
+          if (window.sessionStorage.getItem("inuPrice")) {
             this.form.money = window.sessionStorage.getItem("inuPrice") * find.amount
           }
         }
@@ -613,65 +626,81 @@
     line-height: 2;
     color: #333;
   }
-  h4{
+
+  h4 {
     font-size: 14px;
     margin: 0;
     padding: 0;
     color: #666;
   }
-  p{
+
+  p {
     font-size: 12px;
     color: #999;
     margin: 0;
     padding: 0;
   }
 
-  .clause-box >>> .el-dialog__header{
+  .clause-box >>> .el-dialog__header {
     background: #58acad;
     color: #fff;
   }
-  .clause-box >>> .el-dialog__title{
+
+  .clause-box >>> .el-dialog__title {
     color: #fff;
   }
-  .clause-box >>> .el-dialog__headerbtn .el-dialog__close{
+
+  .clause-box >>> .el-dialog__headerbtn .el-dialog__close {
     color: #fff;
   }
-  .clause-box >>> .el-button--primary{
+
+  .clause-box >>> .el-button--primary {
     background-color: #58acad;
     border-color: #58acad;
   }
-  .form-box{
+
+  .form-box {
     margin-top: 20px;
   }
-  .clause-box >>> .el-radio__input.is-checked+.el-radio__label{
+
+  .clause-box >>> .el-radio__input.is-checked + .el-radio__label {
     color: #58acad
   }
-  .clause-box >>> .el-radio__input.is-checked .el-radio__inner{
+
+  .clause-box >>> .el-radio__input.is-checked .el-radio__inner {
     background-color: #58acad;
     border-color: #58acad;
   }
-  .radio-box{
+
+  .radio-box {
     overflow: hidden;
   }
-  .radio{
+
+  .radio {
     float: right;
     margin-top: 15px;
   }
-
+  .qr-code{
+    margin: auto;
+  }
   @media (max-width: 767px) {
-    .clause-box >>> .el-dialog{
+    .clause-box >>> .el-dialog {
       width: 90%;
     }
-    .clause-box >>> .el-dialog__body{
+
+    .clause-box >>> .el-dialog__body {
       padding: 20px 20px 0;
     }
-    .clause-box >>> .el-dialog__header{
+
+    .clause-box >>> .el-dialog__header {
       padding: 10px 20px;
     }
-    .clause-box >>> .el-dialog__footer{
+
+    .clause-box >>> .el-dialog__footer {
       padding: 0 20px 10px;
     }
-    .clause-box >>> .el-dialog__headerbtn{
+
+    .clause-box >>> .el-dialog__headerbtn {
       top: 13px;
     }
   }

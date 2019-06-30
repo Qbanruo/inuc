@@ -29,7 +29,7 @@
         <el-col :xs="20" :sm="17" :md="18" :lg="18" :xl="17" class="hidden-xs-only">
           <div class="nav">
             <ul>
-              <li class="active" @click="$router.push('/')">首页</li>
+              <li :class="[isHome === 'home' ? 'active' : '']" @click="$router.push('/')">首页</li>
               <li>产品与服务</li>
               <li>
                 <el-popover
@@ -42,7 +42,7 @@
                 </el-popover>
 
               </li>
-              <li @click="$router.push('/person')">个人中心</li>
+              <li :class="[isHome === 'person' ? 'active' : '']" @click="$router.push('/person')">个人中心</li>
             </ul>
           </div>
         </el-col>
