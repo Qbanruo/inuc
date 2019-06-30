@@ -1,5 +1,5 @@
 import axios from 'axios/index'
-import { apiRoot } from 'config'
+import {apiRoot} from "./config";
 
 axios.defaults.baseURL = apiRoot
 axios.defaults.timeout = 30000

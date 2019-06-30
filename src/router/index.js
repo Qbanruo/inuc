@@ -21,7 +21,10 @@ let routes = [
     }
   }
 ]
-const router = new Router({routes})
+const router = new Router({
+  mode: 'history',
+  routes
+})
 
 router.afterEach(async (to, from, next) => {
   if (to.meta.title) {

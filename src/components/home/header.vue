@@ -31,13 +31,23 @@
             <ul>
               <li class="active" @click="$router.push('/')">首页</li>
               <li>产品与服务</li>
-              <li>联系我们</li>
+              <li>
+                <el-popover
+                  placement="bottom"
+                  v-model="visible">
+                  <div>
+                    <img :src="qrCode" alt="">
+                  </div>
+                  <span slot="reference">联系我们</span>
+                </el-popover>
+
+              </li>
               <li @click="$router.push('/person')">个人中心</li>
             </ul>
           </div>
         </el-col>
         <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
-          <span class="login">请登录</span>
+          <a href="https://reitschain.com/code/login?redirect_url=http://localhost:8088"> <span class="login">请登录</span></a>
         </el-col>
       </el-row>
     </div>
@@ -46,18 +56,81 @@
 
 <script>
   import 'element-ui/lib/theme-chalk/display.css';
+  import api from '../../common/api'
+  import {extractQueryParams} from '../../common/utils'
   export default {
     name: 'topHeader',
     data () {
       return {
-        activeIndex: '/',
-        mode: 'horizontal',
         clientWidth: '',
-        showNavIcon: false
+        showNavIcon: false,
+        visible: false,
+        qrCode: '',
+        code: null
       }
     },
     props: {
       isHome: String
+    },
+    created(){
+      this.getQrCode()
+      this.code = this.$route.query.code
+      // this.getLoginCode()
+      if(this.code){
+        this.getSweepCodeLogin()
+      }
+    },
+    methods: {
+      getQrCode () {
+        api.getPublicNumImg().then(s => {
+          this.qrCode = s.data
+        })
+      },
+      getSweepCodeLogin(){
+        api.getSweepCodeLogin({code: this.code}).then(s => {
+          console.log(s);
+          if(s.success){
+            window.sessionStorage.setItem('token', s.token);
+            window.sessionStorage.setItem('personInfo', JSON.stringify(s.data));
+          }
+        })
+      },
+      getLoginCode(){
+        let queryParams = extractQueryParams(window.location.href)
+        let code = queryParams.code
+        if (code) {
+          this.removeUrlCodeQuery()
+        }
+      },
+      removeUrlCodeQuery () {
+        let location = window.location
+        let search = location.search
+        if (search) {
+          search = search.substr(1)
+        }
+        let href = location.origin
+        let pathName = location.pathname
+        if (pathName) {
+          href += pathName
+        }
+        let searchArr = search.split('&').filter(item => {
+          if (item.indexOf('code=') !== -1) {
+            return false
+          }
+          if (item.indexOf('state=') !== -1) {
+            return false
+          }
+          return true
+        })
+        if (searchArr.length > 0) {
+          href += '?' + searchArr.join('&')
+        }
+        let hash = location.hash
+        if (hash) {
+          href += hash
+        }
+        window.location.href = href
+      },
     },
     mounted() {
       const that = this;

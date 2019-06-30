@@ -5,15 +5,33 @@
       <img src="../../../static/img/banner-logo.png" alt="" class="banner-logo animated fadeIn show">
     </div>
     <div class="banner-btn animated fadeIn show">
-      <span class="price-btn">INU： <i>￥500</i></span>
+      <span class="price-btn">INU： <i>￥{{inuPrice}}</i></span>
     </div>
   </div>
 </template>
 
 <script>
-  import api from 'api'
+  import api from '../../common/api'
   export default {
-    name: 'banner'
+    name: 'banner',
+    data () {
+      return {
+        inuPrice: ''
+      }
+    },
+    created(){
+      this.getInuPrice()
+    },
+    methods: {
+      getInuPrice () {
+        api.getInuPrice().then(s => {
+          this.inuPrice = s.price
+          if(this.inuPrice){
+            window.sessionStorage.setItem('inuPrice', this.inuPrice);
+          }
+        })
+      }
+    },
   }
 </script>
 

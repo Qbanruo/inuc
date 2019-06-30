@@ -152,7 +152,6 @@
         this.show = val
       },
       showBuy(){
-        console.log(111)
         this.$refs.buyPro.show()
       }
     },

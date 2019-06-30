@@ -465,33 +465,39 @@
         <p> 6. 最高互助金限额为 300 万人民币等值的 INU。</p>
       </div>
       <div class="radio-box">
-        <el-radio v-model="form.radio" class="radio">我同意以上条款</el-radio>
+        <el-form :inline="true" :model="termForm" ref="termForm" >
+          <el-form-item label="" style="float: right" prop="term"
+                        :rules="[{ required: true, message: '请先同意以上条款', trigger: ['blur', 'change']}]">
+           <el-radio v-model="termForm.term" class="radio" label="1">我同意以上条款</el-radio>
+          </el-form-item>
+        </el-form>
       </div>
-      <el-form :inline="true" ref="form" :model="form" label-width="100px" class="form-box" size="mini">
-        <el-form-item label="INU大病互助">
+      <el-form :inline="true" :model="form" ref="form" label-width="100px" class="form-box" size="mini">
+        <el-form-item label="INU大病互助" prop="year"
+                      :rules="[{ required: true, message: 'INU大病互助', trigger: 'change'}]">
           <el-select v-model="form.year" placeholder="请选择年份" style="width: 80px">
-            <el-option label="1" value="1"></el-option>
-            <el-option label="2" value="2"></el-option>
-            <el-option label="5" value="5"></el-option>
-            <el-option label="10" value="10"></el-option>
+            <el-option v-for="item in years" :key="item" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="年" label-width="20px"></el-form-item>
-        <el-form-item label="INU">
-          <el-input v-model="form.name" autocomplete="off" style="width: 80px"></el-input>
+        <el-form-item label="INU" prop="amount"
+                      :rules="[{ required: true, message: 'amount', trigger: 'change'}]">
+          <el-input v-model="form.amount" autocomplete="off" style="width: 80px" readonly></el-input>
         </el-form-item>
-        <el-form-item label="RMB">
-          <el-input v-model="form.money" autocomplete="off" style="width: 80px"></el-input>
+        <el-form-item label="RMB" prop="money"
+                      :rules="[{ required: true, message: 'RMB', trigger: 'change'}]">
+          <el-input v-model="form.money" autocomplete="off" style="width: 80px" readonly></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button class="btn" type="primary" size="small">确认支付</el-button>
+        <el-button class="btn" type="primary" size="small" @click="validate()">确认支付</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
+  import api from '../../common/api'
   export default {
     name: 'buy',
     data () {
@@ -499,16 +505,69 @@
         dialogFormVisible: false,
         form: {
           year: '',
-          name: '',
+          amount: '',
           money: '',
-          radio: false
-        }
+        },
+        termForm: {
+          term: ''
+        },
+        years: [],
+        inuInfo: null
       }
+    },
+    created(){
+      this.inuInfo = null
+      this.years = []
+      this.getINU()
     },
     methods: {
       show () {
-        console.log(2222)
         this.dialogFormVisible = true
+      },
+      getINU (){
+        api.getInuInfoByType({type: 100}).then(s => {
+          this.inuInfo = s.data
+          s.data.forEach(p => {
+            this.years.push(p.year)
+          })
+        })
+      },
+      async validate(){
+        let termForm = false
+        let form = false
+        this.$refs.termForm.validate((v) => {
+          termForm = v
+        })
+        this.$refs.form.validate((valid) => {
+          form = valid
+        })
+        if(form && termForm){
+          this.submit()
+        }
+      },
+      submit(){
+        let params = {
+          token: window.sessionStorage.getItem('token'),
+          amount: this.form.amount,
+          type: 100,
+          year: this.form.year
+        }
+        api.postSweepPayment(params).then(s => {
+          console.log(s);
+        })
+      }
+    },
+    watch: {
+      'form.year': function (val){
+        if(val){
+          let find = this.inuInfo.find(s => {
+            return s.year === val
+          })
+          this.form.amount = find.amount
+          if(window.sessionStorage.getItem("inuPrice")){
+            this.form.money = window.sessionStorage.getItem("inuPrice") * find.amount
+          }
+        }
       }
     },
   }
