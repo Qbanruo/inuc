@@ -536,12 +536,13 @@
       async validate(){
         axios({
           method: 'post',
-          url: 'https://passport.she.rls.zanservice.com/api/api/v2/personal/auth/login',
+          url: 'http://39.100.122.95:8080/code_test_manager/api/openApiTest1',
           data: {
-            password: "18500054021",
-            userName: "18500054021"
+            address: "18500054021",
           },
-          headers: {'X-Custom-Header': 'foobar'}
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
         }).then(function (response) {
           console.log(response);
         })
