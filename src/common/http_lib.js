@@ -1,5 +1,6 @@
 import axios from 'axios/index'
 import {apiRoot} from "./config";
+var qs = require('querystring')
 
 axios.defaults.baseURL = apiRoot
 axios.defaults.timeout = 30000
@@ -26,7 +27,6 @@ const HttpLib = {
   post: async function (url, data = {}) {
     try {
       let res = await axios.post(url, data)
-
       return res.data
     } catch (error) {
       console.log(error.message)

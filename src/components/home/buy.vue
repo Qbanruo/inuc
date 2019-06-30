@@ -498,6 +498,7 @@
 
 <script>
   import api from '../../common/api'
+  import axios from 'axios'
   export default {
     name: 'buy',
     data () {
@@ -533,17 +534,32 @@
         })
       },
       async validate(){
-        let termForm = false
-        let form = false
-        this.$refs.termForm.validate((v) => {
-          termForm = v
+        axios({
+          method: 'post',
+          url: 'https://passport.she.rls.zanservice.com/api/api/v2/personal/auth/login',
+          data: {
+            password: "18500054021",
+            userName: "18500054021"
+          },
+          headers: {'X-Custom-Header': 'foobar'}
+        }).then(function (response) {
+          console.log(response);
         })
-        this.$refs.form.validate((valid) => {
-          form = valid
-        })
-        if(form && termForm){
-          this.submit()
-        }
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        // let termForm = false
+        // let form = false
+        // this.$refs.termForm.validate((v) => {
+        //   termForm = v
+        // })
+        // this.$refs.form.validate((valid) => {
+        //   form = valid
+        // })
+        // if(form && termForm){
+        //   this.submit()
+        // }
       },
       submit(){
         let params = {

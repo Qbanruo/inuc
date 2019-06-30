@@ -22,7 +22,8 @@ export default {
     let data = await HttpLib.post(ApiRoutes.api.postSweepPayment(), params)
     return data
   },
-  async postAddress (p){
-
+  async getAddress (p){
+    let data = await HttpLib.post(ApiRoutes.api.getAddress(), p)
+    return data
   }
 }
