@@ -1,7 +1,13 @@
 <template>
   <div class="person-item">
+    <el-dialog
+      title="扫码填写"
+      :visible.sync="dialogVisible"
+      width="290px">
+      <vue-qr :logoSrc="imageUrl" :logoScale="0.3" :text="codeUrl" :size="250" :dotScale="dotScale"></vue-qr>
+    </el-dialog>
     <el-row class="pro-width">
-      <el-col :xs="24" :sm="4" :md="4" :lg="2" :xl="4">
+      <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4">
         <div class="left">
           <h2>电子凭证</h2>
           <p>未开封保单</p>
@@ -41,7 +47,7 @@
                 label="操作">
                 <template slot-scope="scope">
                   <button class="grey-btn">预览</button>
-                  <button class="green-btn">填写</button>
+                  <button class="green-btn" @click="getQRcodeLink(scope.row)">填写</button>
                 </template>
               </el-table-column>
             </el-table>
@@ -82,7 +88,7 @@
                 label="操作">
                 <template slot-scope="scope">
                   <button class="grey-btn">预览</button>
-                  <button class="green-btn">下载</button>
+                  <button class="green-btn" @click="downLoad(scope.row)">下载</button>
                 </template>
               </el-table-column>
             </el-table>
@@ -90,44 +96,34 @@
         </div>
       </el-col>
     </el-row>
+    <downLoad ref="downLoad"></downLoad>
   </div>
 </template>
 
 <script>
   import api from '../../common/api'
+  import vueQr from 'vue-qr'
+  import downLoad from './download'
   export default {
     name: 'voucher',
+    components: {
+      vueQr, downLoad
+    },
     data () {
       return {
+        imageUrl: '../../../static/img/logo_qr.png',
+        dotScale: 0.6,
         form: {
           number: '',
           money:''
         },
-        tableData: [
-          {
-            date: '2019-06-12',
-            number:'P01234',
-            year: '20',
-            shouyi: '0'
-          },
-          {
-            date: '2019-06-12',
-            number:'P01234',
-            year: '20',
-            shouyi: '0'
-          },
-          {
-            date: '2019-06-12',
-            number:'P01234',
-            year: '20',
-            shouyi: '0'
-          }
-        ],
         effectiveInsurance: [],
         unopenedInsurance: [],
         param: {
           token: window.sessionStorage.getItem('token')
-        }
+        },
+        dialogVisible: false,
+        codeUrl:''
       }
     },
     created(){
@@ -144,6 +140,24 @@
         api.getUnopenedInsurance(this.param).then(s => {
           this.unopenedInsurance = s.data
         })
+      },
+      getQRcodeLink(row){
+        let param = {
+          token: this.param.token,
+          id: row.id
+        }
+        api.insureQRcode(param).then(s => {
+          let codeUrl = s.data
+          if(codeUrl){
+            this.$nextTick(() => {
+              this.dialogVisible = true
+              this.codeUrl = codeUrl
+            })
+          }
+        })
+      },
+      downLoad(row){
+        this.$refs.downLoad.show(row)
       }
     },
   }
@@ -211,6 +225,9 @@
   }
   .right-btm >>> .el-table td, .el-table th{
     padding: 8px 0;
+  }
+  .qr-code{
+    margin: auto;
   }
   @media (max-width: 767px) {
     .person-item .right{

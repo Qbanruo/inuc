@@ -6,7 +6,11 @@ let api = {
   getInuInfoByType: () => `novalid/getInuInfoByType`,
   postSweepPayment: () => `vipuser/sweepPayment`,
   getEffectiveInsurance: () => `vipuser/getEffectiveInsurance`,
-  getUnopenedInsurance: () => `vipuser/getUnopenedInsurance`
+  getUnopenedInsurance: () => `vipuser/getUnopenedInsurance`,
+  getPurchaseRecord: () => `vipuser/getPurchaseRecord`,
+  insureQRcode: () => `vipuser/insureQRcode`,
+  getbalancebyaddr: () => 'vipuser/getbalancebyaddr',
+  sweepCallBack: () => 'vipuser/sweepCallBack',
 }
 
 let ApiRoutes = {

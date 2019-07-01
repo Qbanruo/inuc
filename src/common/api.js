@@ -29,5 +29,21 @@ export default {
   async getUnopenedInsurance (params){
     let data = await HttpLib.post(ApiRoutes.api.getUnopenedInsurance(), params)
     return data
+  },
+  async getPurchaseRecord (params){
+    let data = await HttpLib.post(ApiRoutes.api.getPurchaseRecord(), params)
+    return data
+  },
+  async insureQRcode (params){
+    let data = await HttpLib.post(ApiRoutes.api.insureQRcode(), params)
+    return data
+  },
+  async getbalancebyaddr (params){
+    let data = await HttpLib.post(ApiRoutes.api.getbalancebyaddr(), params)
+    return data
+  },
+  async sweepCallBack (params){
+    let data = await HttpLib.post(ApiRoutes.api.sweepCallBack(), params)
+    return data
   }
 }

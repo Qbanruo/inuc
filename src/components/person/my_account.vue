@@ -1,7 +1,7 @@
 <template>
     <div class="person-item">
       <el-row class="pro-width">
-        <el-col :xs="24" :sm="2" :md="4" :lg="2" :xl="4">
+        <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4">
           <div class="left">
             <h2>我的账户</h2>
             <p>我的账户</p>
@@ -33,7 +33,7 @@
                       <el-input v-model="form.address" placeholder="账户地址" readonly></el-input>
                     </el-form-item>
                     <el-form-item label="INU余额">
-                      <el-input v-model="form.money" placeholder="INU余额" readonly></el-input>
+                      <el-input v-model="form.balance" placeholder="INU余额" readonly></el-input>
                     </el-form-item>
                   </div>
                 </el-form>
@@ -42,7 +42,7 @@
             <div class="right-btm">
               <div class="title">交易记录</div>
               <el-table
-                :data="tableData"
+                :data="purchaseRecord"
                 style="width: 100%">
                 <el-table-column
                   align="center"
@@ -52,12 +52,12 @@
                 </el-table-column>
                 <el-table-column
                   align="center"
-                  prop="date"
+                  prop="recordTime"
                   label="日期">
                 </el-table-column>
                 <el-table-column
                   align="center"
-                  prop="money"
+                  prop="amount"
                   label="金额(INU)">
                 </el-table-column>
                 <el-table-column
@@ -67,7 +67,7 @@
                 </el-table-column>
                 <el-table-column
                   align="center"
-                  prop="number"
+                  prop="payNum"
                   label="保障编号">
                 </el-table-column>
               </el-table>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+  import api from '../../common/api'
   export default {
     name: 'my_account',
     data () {
@@ -88,7 +89,11 @@
         form: {
           name: '',
           address: '',
-          money: ''
+          balance: ''
+        },
+        purchaseRecord: [],
+        param: {
+          token: window.sessionStorage.getItem('token')
         },
         tableData: [
           {
@@ -114,9 +119,13 @@
     },
     created(){
       let personInfo = JSON.parse(window.sessionStorage.getItem('personInfo'))
-      console.log(personInfo);
-      this.form.name = personInfo.nickname
-      this.imageUrl = personInfo.headimgurl
+      if(personInfo){
+        this.imageUrl = personInfo.headimgurl
+        this.form.name = personInfo.nickname
+        this.form.address = personInfo.address
+        this.getPurchaseRecord()
+      }
+      this.getbalancebyaddr()
     },
     methods: {
       handleAvatarSuccess () {
@@ -124,6 +133,16 @@
       },
       beforeAvatarUpload(){
 
+      },
+      getPurchaseRecord(){
+        api.getPurchaseRecord(this.param).then(s => {
+          this.purchaseRecord = s.data
+        })
+      },
+      getbalancebyaddr(){
+        api.getbalancebyaddr(this.param).then(s => {
+          this.form.balance = s.data
+        })
       }
     },
   }

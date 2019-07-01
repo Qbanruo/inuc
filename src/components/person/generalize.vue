@@ -1,7 +1,7 @@
 <template>
   <div class="person-item">
     <el-row class="pro-width">
-      <el-col :xs="24" :sm="4" :md="4" :lg="2" :xl="4">
+      <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4">
         <div class="left">
           <h2>推广记录</h2>
           <p>我的推广</p>

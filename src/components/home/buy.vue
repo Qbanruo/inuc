@@ -2,11 +2,11 @@
   <div class="clause-box">
     <el-dialog title="温馨提示" :visible.sync="dialogFormVisible" top="10vh">
       <el-dialog
-        width="30%"
+        width="290px"
         title="扫码支付"
         :visible.sync="innerVisible"
         append-to-body>
-        <div id="qrcode" class="qr-code"></div>
+        <vue-qr :logoSrc="imageUrl" :logoScale="0.3" :text="codeUrl" :size="250" :dotScale="dotScale"></vue-qr>
       </el-dialog>
       <div class="clause">
         <h1>前言</h1>
@@ -505,14 +505,19 @@
 
 <script>
   import api from '../../common/api'
-  import QRCode from 'qrcodejs2'
-
+  import vueQr from 'vue-qr'
   export default {
     name: 'buy',
+    components: {
+      vueQr
+    },
     data () {
       return {
         dialogFormVisible: false,
         innerVisible: false,
+        imageUrl: '../../../static/img/logo_qr.png',
+        codeUrl: '',
+        dotScale: 0.6,
         form: {
           year: '',
           amount: '',
@@ -562,28 +567,20 @@
           type: 100,
           year: this.form.year
         }
-        // api.postSweepPayment(params).then(s => {
-        //   console.log(s);
-        //   let codelink = s.data
-        // })
-        let link = 'https://www.reitschain.com/code/pay?s=IE3dct1MSHPboCjCyfXEhlwHhe3xKUE4wpObbvLNgv60Z2Fv4eaiOsPX6NIqs10zqmHByp9vj6ScakHeAeYGXBU=&o=assetId*100003,amount*1000,toAddress*1ojviBeqSqasEKRWqifwLwwP5MzJN181y,fromAddress*1DQRXY1Pt8Jz5sP8Tesch8jY4ahq66k3Mw,time*1561900337349&a=1ojviBeqSqasEKRWqifwLwwP5MzJN181y'
-        if(link){
-          this.innerVisible = true
-          let doc = document.getElementById('qrcode')
-          if(doc){
-            document.getElementById('qrcode').innerHTML = ''
+        api.postSweepPayment(params).then(s => {
+          let codeUrl = s.data
+          if(codeUrl){
+            this.innerVisible = true
+            this.$nextTick(() => {
+              this.codeUrl = codeUrl
+            })
           }
-          this.$nextTick(() => {
-            this.qrcode(link)
-          })
-        }
-
+        })
       },
-      qrcode (link) {
-        const qrcode = new QRCode('qrcode', {
-          width: 200,
-          height: 200,
-          text: link
+      sweepCallBack(){
+        let token = window.sessionStorage.getItem('token')
+        api.sweepCallBack({token: token}).then(s => {
+          console.log('-----', s);
         })
       }
     },
@@ -597,6 +594,11 @@
           if (window.sessionStorage.getItem("inuPrice")) {
             this.form.money = window.sessionStorage.getItem("inuPrice") * find.amount
           }
+        }
+      },
+      'innerVisible': function (val) {
+        if(val){
+
         }
       }
     },

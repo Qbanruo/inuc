@@ -47,7 +47,7 @@
           </div>
         </el-col>
         <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
-          <a href="https://reitschain.com/code/login?redirect_url=http://localhost:8088"> <span class="login">请登录</span></a>
+          <a :href="loginHref"> <span class="login">请登录</span></a>
         </el-col>
       </el-row>
     </div>
@@ -66,13 +66,16 @@
         showNavIcon: false,
         visible: false,
         qrCode: '',
-        code: null
+        code: null,
+        href: window.location.href,
+        loginHref: ''
       }
     },
     props: {
       isHome: String
     },
     created(){
+      this.loginHref = `https://reitschain.com/code/login?redirect_url=${this.href}`
       this.getQrCode()
       this.code = this.$route.query.code
       // this.getLoginCode()
