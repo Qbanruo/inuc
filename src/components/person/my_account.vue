@@ -94,27 +94,7 @@
         purchaseRecord: [],
         param: {
           token: window.sessionStorage.getItem('token')
-        },
-        tableData: [
-          {
-            date: '2019-06-12',
-            money: '300',
-            type: '转账',
-            number:'P01234'
-          },
-          {
-            date: '2019-06-12',
-            money: '300',
-            type: '转账',
-            number:'P01234'
-          },
-          {
-            date: '2019-06-12',
-            money: '300',
-            type: '转账',
-            number:'P01234'
-          }
-        ]
+        }
       }
     },
     created(){
