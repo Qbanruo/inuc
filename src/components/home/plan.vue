@@ -12,11 +12,11 @@
         <div class="right">
           <div class="right-itme mt50">
             <div class="title">INU意外互助保障计划 <button class="btn">即将上线</button></div>
-            <p class="text">本险种以特定重大疾病，如恶性肿瘤、心肌梗死、脑溢血等为保险对象， 当被保人患有上述疾病时，由保险公司对所花医疗费用给予适当补偿的商 业保险行为。根据保费是否返还来划分， 可分为消费型重大疾病保险和返还型重大疾病保险</p>
+            <p class="text">互助范围广，涵盖猝死、意外伤残、身故，最高可获得百万互助金</p>
           </div>
           <div class="right-itme mt50">
-            <div class="title">INU意外互助保障计划 <button class="btn">即将上线</button></div>
-            <p class="text">本险种以特定重大疾病，如恶性肿瘤、心肌梗死、脑溢血等为保险对象， 当被保人患有上述疾病时，由保险公司对所花医疗费用给予适当补偿的商 业保险行为。根据保费是否返还来划分， 可分为消费型重大疾病保险和返还型重大疾病保险</p>
+            <div class="title">INU老年防癌保障计划 <button class="btn">即将上线</button></div>
+            <p class="text">三高及心脑血管疾病患者均可加入，专属于老年人的低门槛防癌计划，年龄覆盖范围60周岁---70周岁</p>
           </div>
         </div>
       </el-col>
@@ -51,7 +51,7 @@
     background: #fafafa;
   }
   .plan-box .mt50{
-    margin-top: 40px;
+    margin-top: 50px;
   }
   .plan-box .right .right-itme .title{
     font-size: 20px;

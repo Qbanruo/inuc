@@ -9,6 +9,9 @@ axios.defaults.headers['Content-Type'] = 'application/json'
 axios.interceptors.response.use(function (response) {
   if(response.data.msg === '已过期请重新登录！'){
     sessionStorage.clear()
+    this.$router.push({
+      path: '/'
+    })
   }
   return response
 }, function (error) {

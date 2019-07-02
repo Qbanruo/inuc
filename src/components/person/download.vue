@@ -25,7 +25,7 @@
            180天
           </el-form-item>
           <el-form-item label="互助范围：">
-            {{form.name}}
+            {{form.recordTime.slice(0, 10)}} - {{endTime(form.recordTime.slice(0, 10), form.year)}}
           </el-form-item>
         </el-form>
         <a :href="downImg" download="我的保单"><img :src="downImg" width="100%"/></a>
@@ -40,6 +40,7 @@
 
 <script>
   import html2canvas from 'html2canvas'
+  import moment from 'moment'
   export default {
     name: 'download',
     data () {
@@ -61,13 +62,13 @@
       show (row, title) {
         this.dialogVisible = true
         this.title = title
+        console.log(row);
         this.$set(this.$data, 'form', row)
       },
       download(){
         let element = document.getElementById('down');
         html2canvas(element ,{
           backgroundColor: null,
-          logging: false,
         }).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
           this.fileDownload(dataURL)
@@ -83,6 +84,9 @@
         document.body.appendChild(aLink);
         aLink.click();
         document.body.removeChild(aLink);
+      },
+      endTime(time){
+        return moment(time).add(1, 'year').format('YYYY-MM-DD')
       }
     },
   }
@@ -97,7 +101,6 @@
 }
 .form-content{
   padding: 350px 0 0 120px;
-  width: 380px;
 }
 .form-content >>> .el-form-item{
   margin-bottom: 0;

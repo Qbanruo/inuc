@@ -17,7 +17,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '5年' ? 'color' : '']">INU大病互助(5年)</div>
+          <div class="title" :class="[show === '5年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -26,7 +26,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '10年' ? 'color' : '']">INU大病互助(10年)</div>
+          <div class="title" :class="[show === '10年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -35,7 +35,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '20年' ? 'color' : '']">INU大病互助(20年)</div>
+          <div class="title" :class="[show === '20年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
     </el-row>
@@ -68,14 +68,14 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="100" data-wow-iteration="1">
           <div class="left">
-            <div class="title">重疾互助保障计划</div>
+            <div class="title">新产品（即将上线）</div>
             <div class="sub-title">种类：5年</div>
             <div class="text">保险作为一种抗风险的保障措施，是现代社会一个不可或缺的部分，是每个人社会
               生活中的最佳的稳定保障。保险在保障社会稳定和促进经济发展及对外贸易中发挥
               了巨大作用。不仅可以保障社会再生产的正常进行，积极推动商品的流通和消费，
               同时有利于财政和信贷收入平衡，增加外汇收入，增强国家支付能力。
             </div>
-            <button class="pro-btn">立即购买</button>
+            <button class="pro-btn disabled" disabled>立即购买</button>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
@@ -91,14 +91,14 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="left">
-            <div class="title">重疾互助保障计划</div>
+            <div class="title">新产品（即将上线）</div>
             <div class="sub-title">种类：10年</div>
             <div class="text">INU 生命互助相互保障社区是由 InUnion Chain LTD.发起，利用区块链技术与通证理
               念，由社区会员自我管理的全球性的互助保障社区。社区不以盈利为目的，秉承会员互助共
               济、风险共担的理念。InUnion Chain LTD 发行的 INU 通证最初是提供给本社区建设的捐助
               者、建设者和倡导者，本社区中会员可以使用 INU 享受本社区提供的互助保障服务。
             </div>
-            <button class="pro-btn">立即购买</button>
+            <button class="pro-btn disabled" disabled>立即购买</button>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
@@ -114,7 +114,7 @@
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInLeft" data-wow-duration="2s"
                 data-wow-delay="0.1s" data-wow-offset="10" data-wow-iteration="1">
           <div class="left">
-            <div class="title">重疾互助保障计划</div>
+            <div class="title">新产品（即将上线）</div>
             <div class="sub-title">种类：20年</div>
             <div class="text">区块链是一种有别于传统数据保存方式的新技术。纵观其短暂的发展历程，
               区块链已经从最初的单一数字代币逐渐发展成为贯穿于、信用、金融、资产管理、
@@ -122,7 +122,7 @@
               <br/>
               (a )账本公开透明    (b) 去中心化    (c )不可篡改   (d)较低的信任成本    (e)无地域限制
             </div>
-            <button class="pro-btn">立即购买</button>
+            <button class="pro-btn disabled" disabled>立即购买</button>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="wow animated fadeInRight" data-wow-duration="2s"
@@ -233,6 +233,11 @@
     padding: 5px 40px;
     font-size: 17px;
     margin-top: 30px;
+  }
+  .disabled{
+    color: #333!important;
+    border: 1px solid #ddd!important;
+    background: #ddd!important;
   }
   @media (max-width: 1200px) {
 
