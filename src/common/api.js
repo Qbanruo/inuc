@@ -45,5 +45,13 @@ export default {
   async sweepCallBack (params){
     let data = await HttpLib.post(ApiRoutes.api.sweepCallBack(), params)
     return data
+  },
+  async getExtensionRecord (params){
+    let data = await HttpLib.post(ApiRoutes.api.getExtensionRecord(), params)
+    return data
+  },
+  async selProfit (params){
+    let data = await HttpLib.post(ApiRoutes.api.selProfit(), params)
+    return data
   }
 }
