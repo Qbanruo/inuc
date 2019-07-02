@@ -11,14 +11,16 @@
       <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
         <div class="right">
           <div class="tui-guang">
-            <div class="title">我的推广 <button class="img-btn">我的专属海报</button> </div>
+            <div class="title">我的推广
+              <button class="img-btn">我的专属海报</button>
+            </div>
             <el-form label-width="120px" :model="form" size="mini" :inline="true" class="form-content">
-                <el-form-item label="推广人数">
-                  <el-input v-model="form.number" placeholder="推广人数"></el-input>
-                </el-form-item>
-                <el-form-item label="获得收益">
-                  <el-input v-model="form.money" placeholder="获得收益"></el-input>
-                </el-form-item>
+              <el-form-item label="推广人数">
+                <el-input v-model="form.profitSum" placeholder="推广人数"></el-input>
+              </el-form-item>
+              <el-form-item label="获得收益">
+                <el-input v-model="form.profitCount" placeholder="获得收益"></el-input>
+              </el-form-item>
             </el-form>
           </div>
           <div class="right-btm">
@@ -34,12 +36,12 @@
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="date"
+                prop="recordTime"
                 label="日期">
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="number"
+                prop="payNum"
                 label="保障编号">
               </el-table-column>
               <el-table-column
@@ -49,7 +51,7 @@
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="shouyi"
+                prop="profitAmount"
                 label="获得收益">
               </el-table-column>
             </el-table>
@@ -61,66 +63,97 @@
 </template>
 
 <script>
+  import api from '../../common/api'
+
   export default {
     name: 'generalize',
     data () {
       return {
+        param: {
+          token: window.sessionStorage.getItem('token')
+        },
         form: {
           number: '',
-          money:''
+          money: ''
         },
         tableData: [
           {
             date: '2019-06-12',
-            number:'P01234',
+            number: 'P01234',
             year: '20',
             shouyi: '0'
           },
           {
             date: '2019-06-12',
-            number:'P01234',
+            number: 'P01234',
             year: '20',
             shouyi: '0'
           },
           {
             date: '2019-06-12',
-            number:'P01234',
+            number: 'P01234',
             year: '20',
             shouyi: '0'
           }
         ]
       }
     },
+    created () {
+      this.generalize()
+      this.total()
+    },
+    methods: {
+      // 函数定义 推广记录
+      generalize () {
+        api.getExtensionRecord(this.param).then(res => {
+          this.tableData = res.data
+        })
+      },
+      // 函数定义 推广总人数 总收益
+      total () {
+        api.selProfit(this.param).then(res => {
+          console.log(res)
+          this.form = res.data
+        })
+      }
+    },
   }
 </script>
 
 <style scoped>
-  .pro-width{
+  .pro-width {
     background: #fff;
   }
-  .person-item{
+
+  .person-item {
     margin-top: 20px;
   }
-  .person-item .left{
+
+  .person-item .left {
     background: #fff;
     padding: 5px 0;
   }
-  .person-item .left h2{
+
+  .person-item .left h2 {
     font-size: 16px;
     padding: 0 15px;
   }
-  .person-item .left p{
+
+  .person-item .left p {
     color: #666;
     padding: 0 15px;
   }
-  .person-item .right{
+
+  .person-item .right {
     background: #f5f5f5;
     border-left: 20px solid #f5f5f5;
   }
-  .person-item .tui-guang{
+
+  .person-item .tui-guang {
     background: #fff;
   }
-  .tui-guang .img-btn{
+
+  .tui-guang .img-btn {
     background: #57c6bd;
     border: none;
     color: #fff;
@@ -129,25 +162,30 @@
     padding: 4px 15px;
     margin: 8px 15px 0 0;
   }
-  .tui-guang .form-content{
+
+  .tui-guang .form-content {
     margin-top: 20px;
   }
-  .person-item .title{
+
+  .person-item .title {
     border-bottom: 1px solid #ededed;
     line-height: 2.5;
     font-size: 16px;
     padding-left: 20px;
     color: #242331;
   }
-  .right-btm{
+
+  .right-btm {
     background: #fff;
     margin-top: 20px;
   }
-  .right-btm >>> .el-table td, .el-table th{
+
+  .right-btm >>> .el-table td, .el-table th {
     padding: 8px 0;
   }
+
   @media (max-width: 767px) {
-    .person-item .right{
+    .person-item .right {
       border-left: none;
     }
   }

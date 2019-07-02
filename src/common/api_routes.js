@@ -11,6 +11,8 @@ let api = {
   insureQRcode: () => `vipuser/insureQRcode`,
   getbalancebyaddr: () => 'vipuser/getbalancebyaddr',
   sweepCallBack: () => 'vipuser/sweepCallBack',
+  getExtensionRecord: () => 'vipuser/getExtensionRecord',
+  selProfit: () => 'vipuser/selProfit'
 }
 
 let ApiRoutes = {
