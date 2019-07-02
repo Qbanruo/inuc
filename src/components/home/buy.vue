@@ -479,20 +479,18 @@
           </el-form-item>
         </el-form>
       </div>
-      <el-form :inline="true" :model="form" ref="form" label-width="100px" class="form-box" size="mini">
+      <el-form :inline="true" :model="form" ref="form" label-width="120px" class="form-box" size="mini">
         <el-form-item label="INU大病互助" prop="year"
-                      :rules="[{ required: true, message: 'INU大病互助', trigger: 'change'}]">
+                      :rules="[{ required: true, message: '请选择年份', trigger: 'change'}]">
           <el-select v-model="form.year" placeholder="请选择年份" style="width: 80px">
             <el-option v-for="item in years" :key="item" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="年" label-width="20px"></el-form-item>
-        <el-form-item label="INU" prop="amount"
-                      :rules="[{ required: true, message: 'amount', trigger: 'change'}]">
+        <el-form-item label="INU" prop="amount">
           <el-input v-model="form.amount" autocomplete="off" style="width: 80px" readonly></el-input>
         </el-form-item>
-        <el-form-item label="RMB" prop="money"
-                      :rules="[{ required: true, message: 'RMB', trigger: 'change'}]">
+        <el-form-item label="折合人民币约" prop="money">
           <el-input v-model="form.money" autocomplete="off" style="width: 80px" readonly></el-input>
         </el-form-item>
       </el-form>
