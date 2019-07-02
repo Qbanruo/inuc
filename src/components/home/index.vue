@@ -77,7 +77,6 @@ export default {
   },
   methods: {
     loginShow () {
-      console.log(111)
       this.$refs.defaultHeader.login()
     }
   },
