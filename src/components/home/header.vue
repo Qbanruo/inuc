@@ -30,7 +30,7 @@
           <div class="nav">
             <ul>
               <li :class="[isHome === 'home' ? 'active' : '']" @click="$router.push('/')">首页</li>
-              <li>产品与服务</li>
+              <li> <a href="#our">产品与服务</a></li>
               <li>
                 <el-popover
                   placement="bottom"

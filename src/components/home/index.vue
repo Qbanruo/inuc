@@ -22,7 +22,7 @@
         clickMode="push">
       </vue-particles>
     </div>
-    <div class="home-item2 bgfff">
+    <div class="home-item2 bgfff" id="our">
       <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
       <our_products></our_products>
