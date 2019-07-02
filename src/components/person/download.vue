@@ -5,26 +5,26 @@
       :visible.sync="dialogVisible"
       width="650px">
       <div id="down" ref="down" class="down-content">
-        <el-form ref="form" :model="form" label-width="80px" class="form-content">
-          <el-form-item label="会员">
-           {{form.name}}
+        <el-form ref="form" :model="form" label-width="90px" class="form-content">
+          <el-form-item label="会员：">
+           {{form.realName}}
           </el-form-item>
-          <el-form-item label="保障编号">
-           {{form.name}}
+          <el-form-item label="保障编号：">
+           {{form.payNum}}
           </el-form-item>
-          <el-form-item label="保障日期">
-           {{form.name}}
+          <el-form-item label="保障日期：">
+           {{form.receiveTime}}
           </el-form-item>
-          <el-form-item label="身份证号">
-           {{form.name}}
+          <el-form-item label="身份证号：">
+           {{form.idNum}}
           </el-form-item>
-          <el-form-item label="保障金额">
-           {{form.name}}
+          <el-form-item label="保障金额：">
+           {{form.amount}}
           </el-form-item>
-          <el-form-item label="等待期">
+          <el-form-item label="等待期：">
            180天
           </el-form-item>
-          <el-form-item label="互助范围">
+          <el-form-item label="互助范围：">
             {{form.name}}
           </el-form-item>
         </el-form>
@@ -32,7 +32,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false" size="mini">关 闭</el-button>
-        <el-button type="primary"  @click="download()" size="mini" v-if="title === '下载'">下 载</el-button>
+        <el-button type="primary"  @click="download()" size="mini">下 载</el-button>
      </span>
     </el-dialog>
   </div>
@@ -44,10 +44,14 @@
     name: 'download',
     data () {
       return {
-        dialogVisible: true,
+        dialogVisible: false,
         rowData: null,
         form: {
-          name: ''
+          realName: '',
+          payNum:'',
+          receiveTime: '',
+          idNum: '',
+          amount:''
         },
         downImg: '',
         title: ''
@@ -57,7 +61,7 @@
       show (row, title) {
         this.dialogVisible = true
         this.title = title
-        this.rowData = row
+        this.$set(this.$data, 'form', row)
       },
       download(){
         let element = document.getElementById('down');
@@ -97,5 +101,12 @@
 }
 .form-content >>> .el-form-item{
   margin-bottom: 0;
+}
+.form-content >>> .el-form-item__label{
+  color: #847D78;
+  font-weight: bold;
+}
+.form-content >>> .el-form-item__content{
+  color: #847D78;
 }
 </style>

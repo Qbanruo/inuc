@@ -12,7 +12,7 @@
         <div class="right">
           <div class="tui-guang">
             <div class="title">我的推广
-              <button class="img-btn">我的专属海报</button>
+              <!--<button class="img-btn">我的专属海报</button>-->
             </div>
             <el-form label-width="120px" :model="form" size="mini" :inline="true" class="form-content">
               <el-form-item label="推广人数">

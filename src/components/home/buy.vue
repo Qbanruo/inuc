@@ -487,14 +487,15 @@
           </el-select>
         </el-form-item>
         <el-form-item label="年" label-width="20px"></el-form-item>
-        <el-form-item label="INU" prop="amount" label-width="50px">
-          <el-input v-model="form.amount" autocomplete="off" style="width: 80px" readonly></el-input>
+        <el-form-item label="应付INU：" prop="amount" label-width="80px">
+          {{form.amount}}
         </el-form-item>
-        <el-form-item label="折合人民币约" prop="money" label-width="120px">
-          <el-input v-model="form.money" autocomplete="off" style="width: 80px" readonly></el-input>
+        <el-form-item label="折合人民币约：" prop="money" label-width="120px">
+          {{form.money}}
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
+        <span style="color: #70d5d7; margin-right: 10px; font-size: 20px;" v-if="form.year">INU：{{form.amount}}</span>
         <el-button class="btn" type="primary" size="small" @click="validate()">确认支付</el-button>
       </div>
     </el-dialog>
@@ -527,20 +528,20 @@
         years: [],
         inuInfo: null,
         params: {
-          token: window.sessionStorage.getItem('token'),
+          token: '',
           time:''
         },
         timeInterval: null
       }
     },
+    beforeRouteLeave (to, from, next) {
+      clearInterval(this.timeInterval)
+      next()
+    },
     created () {
       this.inuInfo = null
       this.years = []
       this.getINU()
-    },
-    beforeRouteLeave (to, from, next) {
-      clearInterval(this.timeInterval)
-      next()
     },
     methods: {
       show () {
@@ -576,6 +577,7 @@
         }
         api.postSweepPayment(params).then(s => {
           let codeUrl = s.data
+          this.params.token = window.sessionStorage.getItem('token')
           this.params.time = s.time
           if(codeUrl){
             this.innerVisible = true
@@ -589,12 +591,20 @@
         })
       },
       sweepCallBack(){
-        let vue = this
         this.timeInterval = setInterval(() => {
-          api.sweepCallBack(vue.params).then(s => {
-            console.log('sweepCallBack-----', s);
+          api.sweepCallBack(this.params).then(s => {
+            if(s.msg === '已完成支付'){
+              this.$set(this.$data, 'innerVisible', false)
+              this.innerVisible = false
+              this.dialogFormVisible = false
+              this.$message({
+                message: '恭喜你，支付成功',
+                type: 'success'
+              });
+              clearInterval(this.timeInterval)
+            }
           })
-        }, 3000)
+        }, 5000)
       }
     },
     watch: {
@@ -609,11 +619,6 @@
           }
         }
       },
-      'innerVisible': function (val) {
-        if(val){
-
-        }
-      }
     },
   }
 </script>

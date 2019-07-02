@@ -9,7 +9,7 @@
     <el-row class="pro-width">
       <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4">
         <div class="left">
-          <h2>电子凭证</h2>
+          <h2>电子保单</h2>
           <p>未开封保单</p>
           <p>生效保单</p>
         </div>
@@ -34,7 +34,7 @@
               </el-table-column>
               <el-table-column
                 align="center"
-                prop="payNum"
+                prop="type"
                 label="投保类型">
               </el-table-column>
               <el-table-column
@@ -46,8 +46,7 @@
                 align="center"
                 label="操作">
                 <template slot-scope="scope">
-                  <button class="grey-btn">预览</button>
-                  <button class="green-btn" @click="getQRcodeLink(scope.row)">填写</button>
+                  <button class="green-btn" @click="getQRcodeLink(scope.row)">启封保单</button>
                 </template>
               </el-table-column>
             </el-table>
@@ -82,13 +81,15 @@
                 align="center"
                 prop="payNum"
                 label="保障编号">
+                <template slot-scope="scope">
+                  <a :href="scope.row.payNum">{{scope.row.payNum}}</a>
+                </template>
               </el-table-column>
               <el-table-column
                 align="center"
                 label="操作">
                 <template slot-scope="scope">
-                  <button class="grey-btn" @click="downLoad(scope.row, '预览')">预览</button>
-                  <button class="green-btn" @click="downLoad(scope.row, '下载')">下载</button>
+                  <button class="green-btn" @click="downLoad(scope.row)">下载</button>
                 </template>
               </el-table-column>
             </el-table>

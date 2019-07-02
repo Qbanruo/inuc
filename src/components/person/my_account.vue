@@ -3,24 +3,15 @@
       <el-row class="pro-width">
         <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4">
           <div class="left">
-            <h2>我的账户</h2>
-            <p>我的账户</p>
-            <p>交易记录</p>
+            <h2>个人信息</h2>
+            <p>个人信息</p>
           </div>
         </el-col>
         <el-col :xs="24" :sm="20" :md="20" :lg="20" :xl="20">
           <div class="right">
             <div class="right-top">
               <div class="head">
-                <el-upload
-                  class="avatar-uploader"
-                  :action="action"
-                  :show-file-list="false"
-                  :on-success="handleAvatarSuccess"
-                  :before-upload="beforeAvatarUpload">
-                  <img  :src="imageUrl" class="avatar">
-                  <button class="upload-img-btn">点击更换头像</button>
-                </el-upload>
+                <img :src="imageUrl" class="avatar">
               </div>
               <div class="info flex">
                 <div class="title">我的账户</div>
@@ -36,41 +27,11 @@
                       <el-input v-model="form.balance" placeholder="INU余额" readonly></el-input>
                     </el-form-item>
                   </div>
+                  <div class="sign-out">
+                    <el-button type="danger" @click="signOut" size="mini" plain>退出登录</el-button>
+                  </div>
                 </el-form>
               </div>
-            </div>
-            <div class="right-btm">
-              <div class="title">交易记录</div>
-              <el-table
-                :data="purchaseRecord"
-                style="width: 100%">
-                <el-table-column
-                  align="center"
-                  type="index"
-                  label="序号"
-                  width="80">
-                </el-table-column>
-                <el-table-column
-                  align="center"
-                  prop="recordTime"
-                  label="日期">
-                </el-table-column>
-                <el-table-column
-                  align="center"
-                  prop="amount"
-                  label="金额(INU)">
-                </el-table-column>
-                <el-table-column
-                  align="center"
-                  prop="type"
-                  label="交易类型">
-                </el-table-column>
-                <el-table-column
-                  align="center"
-                  prop="payNum"
-                  label="保障编号">
-                </el-table-column>
-              </el-table>
             </div>
           </div>
         </el-col>
@@ -84,7 +45,6 @@
     name: 'my_account',
     data () {
       return {
-        action: '',
         imageUrl: '',
         form: {
           name: '',
@@ -108,12 +68,6 @@
       this.getbalancebyaddr()
     },
     methods: {
-      handleAvatarSuccess () {
-
-      },
-      beforeAvatarUpload(){
-
-      },
       getPurchaseRecord(){
         api.getPurchaseRecord(this.param).then(s => {
           this.purchaseRecord = s.data
@@ -122,6 +76,12 @@
       getbalancebyaddr(){
         api.getbalancebyaddr(this.param).then(s => {
           this.form.balance = s.data
+        })
+      },
+      signOut(){
+        sessionStorage.clear()
+        this.$router.push({
+          path: '/'
         })
       }
     },
@@ -165,6 +125,7 @@
     width: 190px;
     height: 190px;
     background: #57c6bd;
+    text-align: center;
   }
   .person-item .right-top .info{
     background: #fff;
@@ -179,30 +140,19 @@
   .person-item .form-content{
     margin-top: 10px;
     width: 300px;
+    float: left;
   }
-  .right-btm{
-    background: #fff;
-    margin-top: 20px;
-  }
-  .right-btm >>> .el-table td, .el-table th{
-    padding: 8px 0;
-  }
-  .person-item >>> .el-upload img{
+  .person-item img{
     border-radius: 50%;
-    margin-top: 20px;
+    margin-top: 37px;
     width: 60%;
   }
-  .upload-img-btn{
-    background: #fff;
-    border: none;
-    border-radius: 12px;
-    margin-top: 10px;
-    font-size: 12px;
+  .sign-out{
+    float: right;
+    margin: 105px 20px 20px 0;
   }
   @media screen and (min-width: 768px) and (max-width: 1000px) {
-    .person-item .right{
-      border-left: none;
-    }
+
   }
   @media (max-width: 767px) {
     .person-item .right{

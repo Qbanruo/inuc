@@ -12,16 +12,16 @@
         </el-col>
         <el-col :xs="20" class="hidden-sm-and-up">
           <div class="menu-icon" :class="[isHome === 'home' ? 'home-menu' : 'other-menu']" >
-            <el-dropdown trigger="click">
+            <el-dropdown trigger="click" @command="handleCommand">
               <span class="el-dropdown-link">
                 菜单<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>首页</el-dropdown-item>
-                <el-dropdown-item>产品与服务</el-dropdown-item>
-                <el-dropdown-item>联系我们</el-dropdown-item>
-                <el-dropdown-item>个人中心</el-dropdown-item>
-                <el-dropdown-item> <a :href="loginHref">请登录</a></el-dropdown-item>
+                <el-dropdown-item command="home">首页</el-dropdown-item>
+                <el-dropdown-item command="#our">产品与服务</el-dropdown-item>
+                <el-dropdown-item command="contact">联系我们</el-dropdown-item>
+                <el-dropdown-item command="person" v-if="token">个人中心</el-dropdown-item>
+                <el-dropdown-item command="login"> 请登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -42,7 +42,7 @@
                 </el-popover>
 
               </li>
-              <li :class="[isHome === 'person' ? 'active' : '']" @click="$router.push('/person')">个人中心</li>
+              <li v-if="token" :class="[isHome === 'person' ? 'active' : '']" @click="$router.push('/person')">个人中心</li>
             </ul>
           </div>
         </el-col>
@@ -50,6 +50,12 @@
            <span class="login" @click="login()">{{loginText}}</span>
         </el-col>
       </el-row>
+      <el-dialog
+        title="联系我们"
+        :visible.sync="mobileVisible"
+        width="80%">
+        <img :src="qrCode" alt="">
+      </el-dialog>
     </div>
   </el-header>
 </template>
@@ -68,7 +74,9 @@
         qrCode: '',
         code: null,
         loginHref: '',
-        loginText: '请登录'
+        loginText: '请登录',
+        mobileVisible: false,
+        token: false
       }
     },
     props: {
@@ -79,6 +87,13 @@
       this.code = this.$route.query.code
       if(this.code){
         this.getSweepCodeLogin()
+      }
+      if(window.sessionStorage.getItem('token')){
+        this.$set(this.$data, 'token', true)
+        this.loginText = '已登录'
+      } else {
+        this.loginText = '请登录'
+        this.$set(this.$data, 'token', false)
       }
     },
     methods: {
@@ -98,9 +113,25 @@
             this.loginText = '已登录'
             window.sessionStorage.setItem('token', s.token);
             window.sessionStorage.setItem('personInfo', JSON.stringify(s.data));
+            this.$set(this.$data, 'token', true)
           }
         })
       },
+      handleCommand(command){
+        if(command === 'person'){
+          this.$router.push({
+            path: '/person'
+          })
+        } else if (command === 'home') {
+          this.$router.push({
+            path: '/'
+          })
+        } else if (command === 'contact') {
+          this.mobileVisible = true
+        } else if (command === 'login') {
+          this.login()
+        }
+      }
     },
     mounted() {
       const that = this;

@@ -10,7 +10,7 @@ let api = {
   getPurchaseRecord: () => `vipuser/getPurchaseRecord`,
   insureQRcode: () => `vipuser/insureQRcode`,
   getbalancebyaddr: () => 'vipuser/getbalancebyaddr',
-  sweepCallBack: () => 'vipuser/sweepCallBack',
+  sweepCallBack: () => 'vipuser/sweepPayCallBack',
   getExtensionRecord: () => 'vipuser/getExtensionRecord',
   selProfit: () => 'vipuser/selProfit'
 }
