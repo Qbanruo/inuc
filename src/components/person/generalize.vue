@@ -72,30 +72,8 @@
         param: {
           token: window.sessionStorage.getItem('token')
         },
-        form: {
-          number: '',
-          money: ''
-        },
-        tableData: [
-          {
-            date: '2019-06-12',
-            number: 'P01234',
-            year: '20',
-            shouyi: '0'
-          },
-          {
-            date: '2019-06-12',
-            number: 'P01234',
-            year: '20',
-            shouyi: '0'
-          },
-          {
-            date: '2019-06-12',
-            number: 'P01234',
-            year: '20',
-            shouyi: '0'
-          }
-        ]
+        form: {},
+        tableData: []
       }
     },
     created () {
