@@ -32,7 +32,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false" size="mini">关 闭</el-button>
-        <el-button type="primary"  @click="download()" size="mini">下 载</el-button>
+        <el-button type="primary"  @click="download()" size="mini" v-if="title === '下载'">下 载</el-button>
      </span>
     </el-dialog>
   </div>
@@ -49,12 +49,14 @@
         form: {
           name: ''
         },
-        downImg: ''
+        downImg: '',
+        title: ''
       }
     },
     methods: {
-      show (row) {
+      show (row, title) {
         this.dialogVisible = true
+        this.title = title
         this.rowData = row
       },
       download(){

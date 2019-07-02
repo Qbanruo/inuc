@@ -87,8 +87,8 @@
                 align="center"
                 label="操作">
                 <template slot-scope="scope">
-                  <button class="grey-btn">预览</button>
-                  <button class="green-btn" @click="downLoad(scope.row)">下载</button>
+                  <button class="grey-btn" @click="downLoad(scope.row, '预览')">预览</button>
+                  <button class="green-btn" @click="downLoad(scope.row, '下载')">下载</button>
                 </template>
               </el-table-column>
             </el-table>

@@ -90,8 +90,8 @@
       // 函数定义 推广总人数 总收益
       total () {
         api.selProfit(this.param).then(res => {
-          this.form.profitCount = res.data.profitCount
-          this.form.profitSum = res.data.profitSum
+          this.$set(this.form, 'profitCount', res.data.profitCount)
+          this.$set(this.form, 'profitSum', res.data.profitSum)
         })
       }
     },
