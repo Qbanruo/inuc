@@ -80,7 +80,7 @@
       this.code = this.$route.query.code
       // this.getLoginCode()
       if(this.code){
-        // this.getSweepCodeLogin()
+        this.getSweepCodeLogin()
       }
     },
     methods: {
