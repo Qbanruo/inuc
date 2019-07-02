@@ -91,7 +91,8 @@
       total () {
         api.selProfit(this.param).then(res => {
           console.log(res)
-          this.form = res.data
+          this.form.profitCount = res.data.profitCount
+          this.form.profitSum = res.data.profitSum
         })
       }
     },

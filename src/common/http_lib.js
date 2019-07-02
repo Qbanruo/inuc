@@ -7,6 +7,9 @@ axios.defaults.timeout = 30000
 axios.defaults.headers['Content-Type'] = 'application/json'
 
 axios.interceptors.response.use(function (response) {
+  if(response.data.msg === '已过期请重新登录！'){
+    sessionStorage.clear()
+  }
   return response
 }, function (error) {
   console.log('from interceptor: ' + error)

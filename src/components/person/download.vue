@@ -4,7 +4,7 @@
       title="提示"
       :visible.sync="dialogVisible"
       width="500px">
-      <div id="down" ref="down" style="width: 100%">
+      <div id="down" ref="down" style="width: 100%">123123123
         <ul>
           <li>会员</li>
           <li>保障编号</li>
@@ -47,11 +47,12 @@
 
 <script>
   import html2canvas from 'html2canvas'
+  import jsPDF from 'jspdf'
   export default {
     name: 'download',
     data () {
       return {
-        dialogVisible: false,
+        dialogVisible: true,
         rowData: null,
         form: {
           name: ''
@@ -66,8 +67,10 @@
       },
       download(){
         let element = document.getElementById('down');
-        html2canvas(element,{
+        html2canvas(element ,{
           backgroundColor: null,
+          logging: false,
+          // useCORS: true
         }).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
           // this.downImg = dataURL;

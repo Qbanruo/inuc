@@ -30,7 +30,7 @@
           <div class="nav">
             <ul>
               <li :class="[isHome === 'home' ? 'active' : '']" @click="$router.push('/')">首页</li>
-              <li> <a href="#our">产品与服务</a></li>
+              <li @click="$router.push('/')"> <a href="#our" :class="[isHome === 'home' ? 'color1' : 'color2']">产品与服务</a></li>
               <li>
                 <el-popover
                   placement="bottom"
@@ -47,7 +47,7 @@
           </div>
         </el-col>
         <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
-          <a :href="loginHref"> <span class="login">请登录</span></a>
+          <a :href="loginHref"> <span class="login">{{loginText}}</span></a>
         </el-col>
       </el-row>
     </div>
@@ -68,7 +68,8 @@
         qrCode: '',
         code: null,
         href: window.location.href,
-        loginHref: ''
+        loginHref: '',
+        loginText: '请登录'
       }
     },
     props: {
@@ -91,8 +92,8 @@
       },
       getSweepCodeLogin(){
         api.getSweepCodeLogin({code: this.code}).then(s => {
-          console.log(s);
           if(s.success){
+            this.loginText = '已登录'
             window.sessionStorage.setItem('token', s.token);
             window.sessionStorage.setItem('personInfo', JSON.stringify(s.data));
           }
@@ -185,6 +186,12 @@
   }
   .home-header .nav ul li:hover{
     background: #222;
+  }
+  color1{
+    color: #fff!important;
+  }
+  color12{
+    color: #333;
   }
   .other-header{
     border-bottom: 1px solid #ddd;

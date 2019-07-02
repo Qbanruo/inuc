@@ -74,7 +74,7 @@ export default {
   name: 'home',
   components: {
     defaultHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter, culture, ecological, ecological_banner
-  }
+  },
 }
 </script>
 
