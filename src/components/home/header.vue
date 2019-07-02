@@ -21,7 +21,7 @@
                 <el-dropdown-item>产品与服务</el-dropdown-item>
                 <el-dropdown-item>联系我们</el-dropdown-item>
                 <el-dropdown-item>个人中心</el-dropdown-item>
-                <el-dropdown-item>请登录</el-dropdown-item>
+                <el-dropdown-item> <a :href="loginHref">请登录</a></el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>

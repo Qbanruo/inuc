@@ -527,13 +527,22 @@
           term: ''
         },
         years: [],
-        inuInfo: null
+        inuInfo: null,
+        params: {
+          token: window.sessionStorage.getItem('token'),
+          time:''
+        },
+        timeInterval: null
       }
     },
     created () {
       this.inuInfo = null
       this.years = []
       this.getINU()
+    },
+    beforeRouteLeave (to, from, next) {
+      clearInterval(this.timeInterval)
+      next()
     },
     methods: {
       show () {
@@ -569,19 +578,25 @@
         }
         api.postSweepPayment(params).then(s => {
           let codeUrl = s.data
+          this.params.time = s.time
           if(codeUrl){
             this.innerVisible = true
             this.$nextTick(() => {
               this.codeUrl = codeUrl
+              setTimeout(() =>{
+                this.sweepCallBack()
+              }, 5000)
             })
           }
         })
       },
       sweepCallBack(){
-        let token = window.sessionStorage.getItem('token')
-        api.sweepCallBack({token: token}).then(s => {
-          console.log('-----', s);
-        })
+        let vue = this
+        this.timeInterval = setInterval(() => {
+          api.sweepCallBack(vue.params).then(s => {
+            console.log('sweepCallBack-----', s);
+          })
+        }, 3000)
       }
     },
     watch: {
