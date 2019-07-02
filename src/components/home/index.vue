@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner">
-      <defaultHeader isHome="home"></defaultHeader>
+      <defaultHeader isHome="home" ref="defaultHeader"></defaultHeader>
       <banner></banner>
       <vue-particles
         class="particles"
@@ -25,7 +25,7 @@
     <div class="home-item2 bgfff" id="our">
       <defaultTitle title="我们的产品" subTitle="OUR PRODUCTS" data-wow-duration="2s" data-wow-delay="0.1s"
                     data-wow-offset="50" data-wow-iteration="1" class="wow animated fadeInUp"></defaultTitle>
-      <our_products></our_products>
+      <our_products @login="loginShow"></our_products>
     </div>
     <div class="home-item3 bgfff">
       <plan></plan>
@@ -74,6 +74,12 @@ export default {
   name: 'home',
   components: {
     defaultHeader, banner, defaultTitle, our_products, plan, introduction, partner, defaultFooter, culture, ecological, ecological_banner
+  },
+  methods: {
+    loginShow () {
+      console.log(111)
+      this.$refs.defaultHeader.login()
+    }
   },
 }
 </script>

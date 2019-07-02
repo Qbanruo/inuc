@@ -1,18 +1,11 @@
 <template>
   <div>
     <el-dialog
-      title="提示"
+      title="我的保单"
       :visible.sync="dialogVisible"
-      width="500px">
-      <div id="down" ref="down" style="width: 100%">123123123
-        <ul>
-          <li>会员</li>
-          <li>保障编号</li>
-          <li>会员</li>
-          <li>会员</li>
-        </ul>
-        <!--<img src="../../../static/img/baoban_bg.png" alt="" width="100%">-->
-        <el-form v-if="false" ref="form" :model="form" label-width="80px">
+      width="650px">
+      <div id="down" ref="down" class="down-content">
+        <el-form ref="form" :model="form" label-width="80px" class="form-content">
           <el-form-item label="会员">
            {{form.name}}
           </el-form-item>
@@ -47,7 +40,6 @@
 
 <script>
   import html2canvas from 'html2canvas'
-  import jsPDF from 'jspdf'
   export default {
     name: 'download',
     data () {
@@ -70,11 +62,8 @@
         html2canvas(element ,{
           backgroundColor: null,
           logging: false,
-          // useCORS: true
         }).then((canvas) => {
           let dataURL = canvas.toDataURL("image/png");
-          // this.downImg = dataURL;
-          console.log(dataURL);
           this.fileDownload(dataURL)
         });
       },
@@ -94,5 +83,17 @@
 </script>
 
 <style scoped>
-
+.down-content{
+  width: 600px;
+  height: 800px;
+  background: url('../../../static/img/baoban_bg.png') no-repeat;
+  background-size: 100%;
+}
+.form-content{
+  padding: 350px 0 0 120px;
+  width: 380px;
+}
+.form-content >>> .el-form-item{
+  margin-bottom: 0;
+}
 </style>

@@ -47,7 +47,7 @@
           </div>
         </el-col>
         <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
-          <a :href="loginHref"> <span class="login">{{loginText}}</span></a>
+           <span class="login" @click="login()">{{loginText}}</span>
         </el-col>
       </el-row>
     </div>
@@ -67,7 +67,6 @@
         visible: false,
         qrCode: '',
         code: null,
-        href: window.location.href,
         loginHref: '',
         loginText: '请登录'
       }
@@ -76,10 +75,8 @@
       isHome: String
     },
     created(){
-      this.loginHref = `https://reitschain.com/code/login?redirect_url=${this.href}`
       this.getQrCode()
       this.code = this.$route.query.code
-      // this.getLoginCode()
       if(this.code){
         this.getSweepCodeLogin()
       }
@@ -90,6 +87,11 @@
           this.qrCode = s.data
         })
       },
+      login(){
+        let href = window.location.origin + window.location.pathname
+        let loginHref = `https://reitschain.com/code/login?redirect_url=${href}`
+        window.location.href = loginHref
+      },
       getSweepCodeLogin(){
         api.getSweepCodeLogin({code: this.code}).then(s => {
           if(s.success){
@@ -98,42 +100,6 @@
             window.sessionStorage.setItem('personInfo', JSON.stringify(s.data));
           }
         })
-      },
-      getLoginCode(){
-        let queryParams = extractQueryParams(window.location.href)
-        let code = queryParams.code
-        if (code) {
-          this.removeUrlCodeQuery()
-        }
-      },
-      removeUrlCodeQuery () {
-        let location = window.location
-        let search = location.search
-        if (search) {
-          search = search.substr(1)
-        }
-        let href = location.origin
-        let pathName = location.pathname
-        if (pathName) {
-          href += pathName
-        }
-        let searchArr = search.split('&').filter(item => {
-          if (item.indexOf('code=') !== -1) {
-            return false
-          }
-          if (item.indexOf('state=') !== -1) {
-            return false
-          }
-          return true
-        })
-        if (searchArr.length > 0) {
-          href += '?' + searchArr.join('&')
-        }
-        let hash = location.hash
-        if (hash) {
-          href += hash
-        }
-        window.location.href = href
       },
     },
     mounted() {
@@ -187,10 +153,10 @@
   .home-header .nav ul li:hover{
     background: #222;
   }
-  color1{
+  .color1{
     color: #fff!important;
   }
-  color12{
+  .color2{
     color: #333;
   }
   .other-header{

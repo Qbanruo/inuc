@@ -156,10 +156,9 @@
         if(token){
           this.$refs.buyPro.show()
         } else {
-          let href = window.location.href
-          window.location.href = `https://reitschain.com/code/login?redirect_url=${href}`
+          this.$emit('login')
         }
-      }
+      },
     },
     mounted () {
       let wow = new WOW({
