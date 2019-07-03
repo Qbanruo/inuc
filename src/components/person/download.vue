@@ -25,7 +25,7 @@
            180天
           </el-form-item>
           <el-form-item label="互助范围：">
-            {{form.recordTime.slice(0, 10)}} - {{endTime(form.recordTime.slice(0, 10), form.year)}}
+            {{form.receiveTime.slice(0, 10)}} - {{endTime(form.receiveTime.slice(0, 10), form.year)}}
           </el-form-item>
         </el-form>
         <a :href="downImg" download="我的保单"><img :src="downImg" width="100%"/></a>
@@ -62,7 +62,6 @@
       show (row, title) {
         this.dialogVisible = true
         this.title = title
-        console.log(row);
         this.$set(this.$data, 'form', row)
       },
       download(){

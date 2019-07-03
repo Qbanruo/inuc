@@ -491,11 +491,11 @@
           {{form.amount}}
         </el-form-item>
         <el-form-item label="折合人民币约：" prop="money" label-width="120px">
-          {{form.money}}
+          {{form.money}} <span v-if="form.money">元</span>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <span style="color: #70d5d7; margin-right: 10px; font-size: 20px;" v-if="form.year">INU：{{form.amount}}</span>
+        <span style="color: #70d5d7; margin-right: 10px; font-size: 23px;vertical-align: top;display: inline-block" v-if="form.year">INU：{{form.amount}}</span>
         <el-button class="btn" type="primary" size="small" @click="validate()">确认支付</el-button>
       </div>
     </el-dialog>

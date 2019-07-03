@@ -21,7 +21,7 @@
                 <el-dropdown-item command="#our">产品与服务</el-dropdown-item>
                 <el-dropdown-item command="contact">联系我们</el-dropdown-item>
                 <el-dropdown-item command="person" v-if="token">个人中心</el-dropdown-item>
-                <el-dropdown-item command="login"> 请登录</el-dropdown-item>
+                <el-dropdown-item command="login" v-if="!token"> 请登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -36,7 +36,7 @@
                   placement="bottom"
                   v-model="visible">
                   <div>
-                    <img :src="qrCode" alt="">
+                    <img :src="qrCode" alt="" width="150px">
                   </div>
                   <span slot="reference">联系我们</span>
                 </el-popover>
@@ -47,7 +47,7 @@
           </div>
         </el-col>
         <el-col :xs="5" :sm="4" :md="3" :lg="4" :xl="5"  class="hidden-xs-only">
-           <span class="login" @click="login()">{{loginText}}</span>
+           <span class="login" @click="login()" v-if="!token">{{loginText}}</span>
         </el-col>
       </el-row>
       <el-dialog
@@ -70,13 +70,14 @@
       return {
         clientWidth: '',
         showNavIcon: false,
+        showLohin: true,
         visible: false,
         qrCode: '',
         code: null,
         loginHref: '',
         loginText: '请登录',
         mobileVisible: false,
-        token: false
+        token: null
       }
     },
     props: {
@@ -91,9 +92,11 @@
       if(window.sessionStorage.getItem('token')){
         this.$set(this.$data, 'token', true)
         this.loginText = '已登录'
+        this.showLohin = true
       } else {
         this.loginText = '请登录'
         this.$set(this.$data, 'token', false)
+        this.showLohin = false
       }
     },
     methods: {
@@ -183,6 +186,7 @@
   }
   .home-header .nav ul li:hover{
     background: #222;
+    cursor: pointer;
   }
   .color1{
     color: #fff!important;
