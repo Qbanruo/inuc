@@ -16,10 +16,10 @@
             </div>
             <el-form label-width="120px" :model="form" size="mini" :inline="true" class="form-content">
               <el-form-item label="推广人数">
-                <el-input v-if="form.profitSum" v-model="form.profitSum" placeholder="推广人数"></el-input>
+                <el-input v-if="form.profitCount" v-model="form.profitCount" placeholder="推广人数"></el-input>
               </el-form-item>
               <el-form-item label="获得收益">
-                <el-input v-if="form.profitCount" v-model="form.profitCount" placeholder="获得收益"></el-input>
+                <el-input v-if="form.profitSum" v-model="form.profitSum" placeholder="获得收益"></el-input>
               </el-form-item>
             </el-form>
           </div>
