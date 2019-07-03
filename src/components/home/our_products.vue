@@ -13,7 +13,7 @@
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
-        <div class="pro-content" @click="showProduct('5年')">
+        <div class="pro-content">
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
@@ -22,7 +22,7 @@
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
-        <div class="pro-content" @click="showProduct('10年')">
+        <div class="pro-content">
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
@@ -31,7 +31,7 @@
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
               data-wow-offset="10" data-wow-iteration="1" class="wow animated fadeInUp">
-        <div class="pro-content" @click="showProduct('20年')">
+        <div class="pro-content">
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
