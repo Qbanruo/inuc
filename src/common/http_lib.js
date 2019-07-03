@@ -7,11 +7,13 @@ axios.defaults.timeout = 30000
 axios.defaults.headers['Content-Type'] = 'application/json'
 
 axios.interceptors.response.use(function (response) {
-  if(!response.data.success){
-    sessionStorage.clear()
-    this.$router.push({
-      path: '/'
-    })
+  if(response.data.code){
+    if(response.data.code === 101){
+      sessionStorage.clear()
+      this.$router.push({
+        path: '/'
+      })
+    }
   }
   return response
 }, function (error) {

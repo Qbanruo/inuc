@@ -546,6 +546,7 @@
     methods: {
       show () {
         this.dialogFormVisible = true
+        this.termForm.term = ''
       },
       getINU () {
         api.getInuInfoByType({type: 100}).then(s => {
