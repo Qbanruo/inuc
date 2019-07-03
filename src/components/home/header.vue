@@ -181,12 +181,15 @@
     list-style-type: none;
     padding: 10px 25px;
   }
+  .nav ul li:hover, .login:hover {
+    cursor: pointer;
+  }
+
   .home-header .nav ul li{
     color: #fff;
   }
   .home-header .nav ul li:hover{
     background: #222;
-    cursor: pointer;
   }
   .color1{
     color: #fff!important;

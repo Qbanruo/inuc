@@ -17,7 +17,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '5年' ? 'color' : '']">INU重疾互助</div>
+          <div class="title" :class="[show === '5年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -26,7 +26,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '10年' ? 'color' : '']">INU意外互助</div>
+          <div class="title" :class="[show === '10年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" data-wow-duration="2s" data-wow-delay="0.1s"
@@ -35,7 +35,7 @@
           <div class="pro-icon">
             <img src="../../../static/img/pro.png" alt="">
           </div>
-          <div class="title" :class="[show === '20年' ? 'color' : '']">INU老年互助</div>
+          <div class="title" :class="[show === '20年' ? 'color' : '']">新产品（即将上线）</div>
         </div>
       </el-col>
     </el-row>

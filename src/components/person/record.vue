@@ -39,6 +39,9 @@
                 align="center"
                 prop="payNum"
                 label="保障编号">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.payNum">{{scope.row.payNum.slice(-5)}}</span>
+                </template>
               </el-table-column>
             </el-table>
           </div>

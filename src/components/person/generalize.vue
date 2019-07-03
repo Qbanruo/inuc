@@ -16,10 +16,10 @@
             </div>
             <el-form label-width="120px" :model="form" size="mini" :inline="true" class="form-content">
               <el-form-item label="推广人数">
-                <el-input v-model="form.profitSum" placeholder="推广人数"></el-input>
+                <el-input v-if="form.profitSum" v-model="form.profitSum" placeholder="推广人数"></el-input>
               </el-form-item>
               <el-form-item label="获得收益">
-                <el-input v-model="form.profitCount" placeholder="获得收益"></el-input>
+                <el-input v-if="form.profitCount" v-model="form.profitCount" placeholder="获得收益"></el-input>
               </el-form-item>
             </el-form>
           </div>
@@ -43,6 +43,9 @@
                 align="center"
                 prop="payNum"
                 label="保障编号">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.payNum">{{scope.row.payNum.slice(-5)}}</span>
+                </template>
               </el-table-column>
               <el-table-column
                 align="center"
@@ -72,7 +75,10 @@
         param: {
           token: window.sessionStorage.getItem('token')
         },
-        form: {},
+        form: {
+          profitSum: '',
+          profitCount: ''
+        },
         tableData: []
       }
     },

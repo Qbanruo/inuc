@@ -5,6 +5,7 @@
       :visible.sync="dialogVisible"
       width="650px">
       <div id="down" ref="down" class="down-content">
+
         <el-form ref="form" :model="form" label-width="90px" class="form-content">
           <el-form-item label="会员：">
            {{form.realName}}
@@ -28,7 +29,7 @@
             {{form.receiveTime.slice(0, 10)}} - {{endTime(form.receiveTime.slice(0, 10), form.year)}}
           </el-form-item>
         </el-form>
-        <a :href="downImg" download="我的保单"><img :src="downImg" width="100%"/></a>
+        <img src="../../../static/img/baoban_bg.png" alt="" width="100%" class="bg-img">
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false" size="mini">关 闭</el-button>
@@ -54,7 +55,6 @@
           idNum: '',
           amount:''
         },
-        downImg: '',
         title: ''
       }
     },
@@ -94,12 +94,18 @@
 <style scoped>
 .down-content{
   width: 600px;
-  height: 800px;
-  background: url('../../../static/img/baoban_bg.png') no-repeat;
-  background-size: 100%;
+  height: 820px;
+  position: relative;
 }
 .form-content{
   padding: 350px 0 0 120px;
+  position: absolute;
+  z-index: 99;
+}
+.bg-img{
+  position: absolute;
+  top: 0;
+  z-index: 20;
 }
 .form-content >>> .el-form-item{
   margin-bottom: 0;

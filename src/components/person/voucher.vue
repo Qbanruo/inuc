@@ -82,7 +82,7 @@
                 prop="payNum"
                 label="保障编号">
                 <template slot-scope="scope">
-                  <a :href="scope.row.payNum">{{scope.row.payNum}}</a>
+                  <span v-if="scope.row.payNum">{{scope.row.payNum.slice(-5)}}</span>
                 </template>
               </el-table-column>
               <el-table-column
