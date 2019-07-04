@@ -14,19 +14,19 @@
            <span v-if="form.payNum">{{form.payNum.slice(-5)}}</span>
           </el-form-item>
           <el-form-item label="保障日期：">
-           {{form.receiveTime}}
+            {{form.receiveTime}} 至 {{endTime(form.receiveTime, form.year)}} - {{form.year}}年的保险
           </el-form-item>
           <el-form-item label="身份证号：">
            {{form.idNum}}
           </el-form-item>
           <el-form-item label="保障金额：">
-           {{form.amount}} <span v-if="form.amount">INU TOKEN</span>
+           {{form.amount}} <span v-if="form.amount">INU</span>
           </el-form-item>
           <el-form-item label="等待期：">
            180天
           </el-form-item>
           <el-form-item label="互助范围：">
-            {{form.receiveTime.slice(0, 10)}} - {{endTime(form.receiveTime.slice(0, 10), form.year)}}
+            恶性肿瘤+重症疾病
           </el-form-item>
         </el-form>
         <img src="../../../static/img/baoban_bg.png" alt="" width="100%" class="bg-img">
