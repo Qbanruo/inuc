@@ -11,7 +11,7 @@
            {{form.realName}}
           </el-form-item>
           <el-form-item label="保障编号：">
-           {{form.payNum}}
+           <span v-if="form.payNum">{{form.payNum.slice(-5)}}</span>
           </el-form-item>
           <el-form-item label="保障日期：">
            {{form.receiveTime}}
@@ -20,7 +20,7 @@
            {{form.idNum}}
           </el-form-item>
           <el-form-item label="保障金额：">
-           {{form.amount}}
+           {{form.amount}} <span v-if="form.amount">INU TOKEN</span>
           </el-form-item>
           <el-form-item label="等待期：">
            180天
