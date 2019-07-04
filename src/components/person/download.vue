@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="download">
     <el-dialog
       title="我的保单"
       :visible.sync="dialogVisible"
@@ -14,7 +14,7 @@
            <span v-if="form.payNum">{{form.payNum.slice(-5)}}</span>
           </el-form-item>
           <el-form-item label="保障日期：">
-            {{form.receiveTime}} 至 {{endTime(form.receiveTime, form.year)}} - {{form.year}}年的保险
+            {{form.receiveTime}} 至 {{endTime(form.receiveTime, form.year)}} {{form.year}}年的保险
           </el-form-item>
           <el-form-item label="身份证号：">
            {{form.idNum}}
@@ -116,5 +116,50 @@
 }
 .form-content >>> .el-form-item__content{
   color: #847D78;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+
+}
+@media (max-width: 767px) {
+  .download >>> .el-dialog{
+    width: 100% !important;
+  }
+  .down-content{
+    width: 100%;
+    height: 480px;
+  }
+  .form-content{
+    padding: 220px 0 0 40px;
+  }
+  .download >>> .el-form-item__label, .download >>> .el-form-item__content{
+    line-height: 20px;
+  }
+}
+@media (max-width: 375px) {
+  .down-content{
+    width: 100%;
+    height: 460px!important;
+  }
+  .form-content{
+    padding: 190px 0 0 40px!important;
+    width: 240px;
+  }
+  .download >>> .el-form-item__label, .download >>> .el-form-item__content{
+    line-height: 20px;
+  }
+}
+@media (max-width: 414px) {
+  .down-content{
+    width: 100%;
+    height: 500px;
+  }
+  .form-content{
+    padding: 220px 0 0 50px;
+    width: 280px;
+  }
+  .download >>> .el-form-item__label, .download >>> .el-form-item__content{
+    line-height: 22px;
+  }
 }
 </style>
