@@ -3,7 +3,7 @@
     <el-dialog
       title="我的保单"
       :visible.sync="dialogVisible"
-      width="650px">
+      width="750px">
       <div id="down" ref="down" class="down-content">
 
         <el-form ref="form" :model="form" label-width="90px" class="form-content">
@@ -85,7 +85,7 @@
         document.body.removeChild(aLink);
       },
       endTime(time){
-        return moment(time).add(1, 'year').format('YYYY-MM-DD')
+        return moment(time).add(1, 'year').format('YYYY-MM-DD HH:mm:ss')
       }
     },
   }
@@ -93,12 +93,12 @@
 
 <style scoped>
 .down-content{
-  width: 600px;
-  height: 820px;
+  width: 700px;
+  height: 990px;
   position: relative;
 }
 .form-content{
-  padding: 350px 0 0 120px;
+  padding: 420px 0 0 120px;
   position: absolute;
   z-index: 99;
 }

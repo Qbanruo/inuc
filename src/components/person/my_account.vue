@@ -117,13 +117,8 @@
   .person-item .flex{
     flex: 1;
   }
-  .person-item .right-top{
-    height: 190px;
-    overflow: hidden;
-  }
   .person-item .right-top .head{
-    width: 190px;
-    height: 190px;
+    width: 195px;
     background: #57c6bd;
     text-align: center;
   }
@@ -157,6 +152,13 @@
   @media (max-width: 767px) {
     .person-item .right{
       border-left: none;
+    }
+    .sign-out{
+      margin: 0 20px 10px;
+    }
+    .person-item .form-content{
+      width: 240px;
+      padding-right: 10px;
     }
   }
 </style>
