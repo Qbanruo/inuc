@@ -71,6 +71,9 @@
                 align="center"
                 prop="receiveTime"
                 label="保障时间">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.receiveTime"></span>{{receiveTime(scope.row.receiveTime)}} 至 {{endTime(scope.row.receiveTime, scope.row.year)}}
+                </template>
               </el-table-column>
               <el-table-column
                 align="center"
@@ -105,6 +108,7 @@
   import api from '../../common/api'
   import vueQr from 'vue-qr'
   import downLoad from './download'
+  import moment from 'moment'
   export default {
     name: 'voucher',
     components: {
@@ -132,6 +136,12 @@
       this.getUnopenedInsurance()
     },
     methods: {
+      endTime(time, year){
+        return moment(time).add(year, 'year').format('YYYY-MM-DD')
+      },
+      receiveTime(time){
+        return moment(time).format('YYYY-MM-DD')
+      },
       getEffectiveInsurance () {
         api.getEffectiveInsurance(this.param).then(s => {
           this.effectiveInsurance = s.data

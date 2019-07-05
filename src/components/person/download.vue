@@ -14,7 +14,7 @@
            <span v-if="form.payNum">{{form.payNum.slice(-5)}}</span>
           </el-form-item>
           <el-form-item label="保障日期：">
-            {{form.receiveTime}} 至 {{endTime(form.receiveTime, form.year)}} {{form.year}}年的保险
+            {{form.receiveTime}} 至 {{endTime(form.receiveTime, form.year)}}
           </el-form-item>
           <el-form-item label="身份证号：">
            {{form.idNum}}
