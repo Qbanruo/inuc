@@ -78,6 +78,7 @@
               <el-table-column
                 align="center"
                 prop="year"
+                width="80"
                 label="保障年限">
               </el-table-column>
               <el-table-column
